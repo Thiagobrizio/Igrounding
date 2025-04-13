@@ -4,7 +4,7 @@
     "description": "",
     "keywords": [],
     "license": "ISC",
-    "author": "Michael Poulgrain",
+    "author": "Thiago Brizio",
     "type": "module",
     "exports": {
         ".": "./src/index.ts",

@@ -3,11 +3,7 @@
     "private": true,
     "version": "1.0.4",
     "type": "module",
-    "author": "Michael Poulgrain",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/Michaelp1994/transmission-lines"
-    },
+    "author": "Thiago Brizio",
     "scripts": {
         "bump": "npm version patch && git push --follow-tags",
         "build": "turbo run build",

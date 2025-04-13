@@ -4,12 +4,8 @@
     "version": "1.0.2",
     "keywords": [],
     "license": "ISC",
-    "author": "Michael Poulgrain",
+    "author": "Thiago Brizio",
     "type": "module",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/Michaelp1994/transmission-lines"
-    },
     "main": "./dist/index.js",
     "scripts": {
         "postinstall": "electron-rebuild -f",
