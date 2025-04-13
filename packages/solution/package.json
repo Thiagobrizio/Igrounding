@@ -1,0 +1,31 @@
+{
+    "name": "@repo/solution",
+    "type": "module",
+    "private": true,
+    "exports": {
+        ".": "./src/index.ts",
+        "./*": "./src/*.ts"
+    },
+    "scripts": {
+        "clean": "rm -rf .turbo node_modules dist",
+        "lint": "eslint .",
+        "lint:fix": "eslint . --fix",
+        "test": "vitest run",
+        "typecheck": "tsc --noEmit --pretty"
+    },
+    "dependencies": {
+        "@repo/db": "workspace:*",
+        "@repo/opendss-interface": "workspace:*",
+        "@repo/validators": "workspace:*",
+        "mathjs": "^13.2.0"
+    },
+    "devDependencies": {
+        "@repo/eslint-config": "workspace:*",
+        "@repo/typescript-config": "workspace:*",
+        "@types/activex-opendssengine": "^4.0.0",
+        "eslint": "^9.13.0",
+        "typescript": "^5.6.3",
+        "vite-tsconfig-paths": "^5.0.1",
+        "vitest": "^2.1.3"
+    }
+}

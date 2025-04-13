@@ -1,0 +1,40 @@
+name: Release
+
+on:
+    push:
+        tags: "v*.*.*"
+jobs:
+    release:
+        name: Release
+        timeout-minutes: 15
+        runs-on: windows-latest # change to windows-latest when working.
+
+        steps:
+            - name: Check out code
+              uses: actions/checkout@v4
+
+            - name: Setup pnpm
+              uses: pnpm/action-setup@v3
+
+            - name: Setup Node.js environment
+              uses: actions/setup-node@v4
+              with:
+                  node-version: 20
+                  cache: pnpm
+
+            - name: Install dependencies
+              run: pnpm install
+
+            - name: Build
+              run: pnpm run build
+
+            - name: Package
+              run: pnpm run package
+
+            - name: Create Release
+              uses: softprops/action-gh-release@v1
+              with:
+                  files: "releases/Igrounding Setup *.exe"
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  tag_name: ${{ github.ref_name }}

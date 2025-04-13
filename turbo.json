@@ -1,0 +1,41 @@
+{
+    "$schema": "https://turbo.build/schema.json",
+    "globalDependencies": ["**/.env.*local"],
+    "globalEnv": ["PORT"],
+    "tasks": {
+        "build": {
+            "dependsOn": ["^build"],
+            "outputs": ["dist/**"]
+        },
+        "generate": {
+            "cache": false,
+            "persistent": true
+        },
+        "package": {
+            "dependsOn": ["desktop#build", "gui#build"],
+            "outputs": ["dist/**"],
+            "cache": false
+        },
+        "rebuild": {
+            "cache": false
+        },
+        "test": {
+            "outputs": ["coverage/**"],
+            "dependsOn": []
+        },
+        "db:push": {},
+        "lint": {},
+        "lint:fix": {},
+        "typecheck": {},
+        "dev": {
+            "cache": false,
+            "persistent": true
+        },
+        "clean": {
+            "cache": false
+        },
+        "watch": {
+            "cache": false
+        }
+    }
+}

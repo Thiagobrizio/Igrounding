@@ -1,0 +1,36 @@
+{
+    "name": "@repo/validators",
+    "private": true,
+    "description": "",
+    "keywords": [],
+    "license": "ISC",
+    "author": "Michael Poulgrain",
+    "type": "module",
+    "exports": {
+        ".": "./src/index.ts",
+        "./Ids": "./src/Ids.schema.ts",
+        "./schemas/*": "./src/schemas/*.ts",
+        "./forms/*": "./src/forms/*.ts",
+        "./forms": "./src/forms/index.ts",
+        "./opendss/*": "./src/opendss/*.ts"
+    },
+    "scripts": {
+        "clean": "rm -rf .turbo node_modules dist",
+        "lint": "eslint .",
+        "lint:fix": "eslint . --fix",
+        "test": "vitest run",
+        "typecheck": "tsc --noEmit --pretty"
+    },
+    "dependencies": {
+        "zod": "^3.23.8"
+    },
+    "devDependencies": {
+        "@repo/db": "workspace:*",
+        "@repo/eslint-config": "workspace:*",
+        "@repo/typescript-config": "workspace:*",
+        "concurrently": "^9.0.1",
+        "eslint": "^9.13.0",
+        "typescript": "^5.6.3",
+        "vitest": "^2.1.3"
+    }
+}

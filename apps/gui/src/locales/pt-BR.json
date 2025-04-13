@@ -1,0 +1,646 @@
+{
+  "addConductorModal": {
+    "bundleNumber": {
+      "label": ""
+    },
+    "bundleSpacing": {
+      "label": ""
+    },
+    "fromPhase": {
+      "label": ""
+    },
+    "isNeutral": {
+      "label": ""
+    },
+    "modalDescription": "",
+    "modalTitle": "",
+    "name": {
+      "label": ""
+    },
+    "toPhase": {
+      "label": ""
+    },
+    "typeId": {
+      "label": ""
+    }
+  },
+  "addTowerModal": {
+    "distance": {
+      "label": ""
+    },
+    "geometryId": {
+      "label": ""
+    },
+    "name": {
+      "label": ""
+    },
+    "resistance": {
+      "label": ""
+    }
+  },
+  "baseSelect": {
+    "noneFound": "",
+    "search": "",
+    "select": ""
+  },
+  "conductorConfiguration": {
+    "addTooltip": "Adicione um novo condutor",
+    "bundleNumber": {
+      "label": "Número do pacote"
+    },
+    "bundleSpacing": {
+      "label": "Espaçamento de pacote"
+    },
+    "deleteAllTooltip": "Exclua todos os condutores",
+    "deleteTooltip": "Excluir condutor",
+    "description": "Configure os condutores da linha de transmissão",
+    "fromPhase": {
+      "label": "Da Fase"
+    },
+    "isNeutral": {
+      "label": ""
+    },
+    "name": {
+      "label": "Nome"
+    },
+    "title": "Configuração do condutor",
+    "toPhase": {
+      "label": "Até fase"
+    },
+    "type": {
+      "label": "Tipo"
+    }
+  },
+  "conductorLocationTable": {
+    "x": {
+      "label": ""
+    },
+    "y": {
+      "label": ""
+    }
+  },
+  "conductorLocations": {
+    "addConductor": {
+      "tooltip": "Adicionar um condutor"
+    },
+    "deleteAll": {
+      "tooltip": "Exclua todos os condutores"
+    },
+    "deleteConductorTooltip": "Excluir condutor",
+    "mirrorTooltip": "Condutores espelhados ao longo do eixo X",
+    "number": {
+      "title": "Número"
+    },
+    "title": "Configuração do condutor",
+    "xCoord": {
+      "title": "Coordenada X"
+    },
+    "yCoord": {
+      "title": "Coordenada Y"
+    }
+  },
+  "conductorType": {
+    "acResistance25": {
+      "description": "A resistência do condutor a 25° C AC",
+      "label": "Resistência (25° CA)"
+    },
+    "acResistance50": {
+      "description": "A resistência do condutor a 50° Celsius AC",
+      "label": "Resistência (50° CA)"
+    },
+    "acResistance75": {
+      "description": "A resistência do condutor a 75° Celsius AC",
+      "label": "Resistência (75° CA)"
+    },
+    "add": {
+      "title": "Adicionar tipo de condutor"
+    },
+    "coreDiameter": {
+      "description": "O diâmetro do material interno, em mm.",
+      "label": "Diâmetro do núcleo"
+    },
+    "currentCapacity": {
+      "description": "A capacidade atual, em amperes.",
+      "label": "Capacidade atual"
+    },
+    "dcResistance25": {
+      "description": "A resistência do condutor a 25° Celsius DC",
+      "label": "Resistência (25° CC)"
+    },
+    "edit": {
+      "title": "Editar tipo de condutor"
+    },
+    "gmr": {
+      "description": "O raio médio geométrico, em mm.",
+      "label": "Raio Médio Geométrico"
+    },
+    "layers": {
+      "description": "O número total de camadas",
+      "label": "Camadas"
+    },
+    "name": {
+      "description": "Dê ao tipo Condutor um nome exclusivo.",
+      "label": "Nome"
+    },
+    "noConductorSelectedErrorMessage": "Selecione um tipo de condutor.",
+    "noneFound": "Nenhum condutor encontrado.",
+    "outerDiameter": {
+      "description": "O diâmetro de todo o condutor, em mm.",
+      "label": "Diâmetro externo"
+    },
+    "searchConductors": "Pesquisar Condutores...",
+    "selectConductorType": "Selecione o tipo de condutor",
+    "stranding": {
+      "description": "O número de fios por camada, como 7/27",
+      "label": "Encalhe"
+    },
+    "surfaceArea": {
+      "description": "A área superficial total do condutor, em mm^2",
+      "label": "Área de Superfície"
+    }
+  },
+  "conductorTypesPage": {
+    "add": {
+      "buttonText": ""
+    }
+  },
+  "conductors": {
+    "add": {
+      "buttonText": "Adicionar condutor"
+    }
+  },
+  "createConductorLocationModal": {
+    "x": {
+      "label": ""
+    },
+    "y": {
+      "label": ""
+    }
+  },
+  "createConductorModal": {
+    "bundleNumber": {
+      "label": ""
+    },
+    "bundleSpacing": {
+      "label": ""
+    },
+    "fromPhase": {
+      "label": ""
+    },
+    "isNeutral": {
+      "label": ""
+    },
+    "name": {
+      "label": ""
+    },
+    "toPhase": {
+      "label": ""
+    },
+    "typeId": {
+      "label": ""
+    }
+  },
+  "createProjectForm": {
+    "name": {
+      "label": ""
+    }
+  },
+  "createSourceForm": {
+    "add": {
+      "buttonText": "",
+      "buttonTooltip": "",
+      "description": "",
+      "title": ""
+    },
+    "deletionWarning": "",
+    "edit": {
+      "title": ""
+    },
+    "enabled": {
+      "description": "",
+      "label": ""
+    },
+    "frequency": {
+      "label": ""
+    },
+    "isc1": {
+      "description": "",
+      "label": ""
+    },
+    "isc3": {
+      "description": "",
+      "label": ""
+    },
+    "name": {
+      "description": "",
+      "label": "",
+      "placeholder": ""
+    },
+    "noneFound": "",
+    "phases": {
+      "description": "",
+      "label": ""
+    },
+    "resistance": {
+      "description": "",
+      "label": ""
+    },
+    "searchSources": "",
+    "select": "",
+    "title": "",
+    "voltage": {
+      "description": "",
+      "label": ""
+    },
+    "x0r0": {
+      "description": "",
+      "label": ""
+    },
+    "x1r1": {
+      "description": "",
+      "label": ""
+    }
+  },
+  "createTransmissionLineForm": {
+    "fromSource": {
+      "label": ""
+    },
+    "name": {
+      "label": ""
+    },
+    "toSource": {
+      "label": ""
+    }
+  },
+  "errorPage": {
+    "errorPageText": "Algo deu errado, retorne e tente novamente.",
+    "title": "Erro"
+  },
+  "faultLocationForm": {
+    "name": {
+      "label": ""
+    },
+    "towerId": {
+      "label": ""
+    }
+  },
+  "form": {
+    "cancel": "Cancelar",
+    "create": "",
+    "delete": "Excluir",
+    "generate": "Gerar",
+    "reset": "Reiniciar",
+    "submit": "Enviar",
+    "update": ""
+  },
+  "general": {
+    "cannotUndo": "Essa ação não pode ser desfeita.",
+    "changeLanguage": "Mudar idioma",
+    "conductorTypes": "Tipos de condutores",
+    "confirmationTitle": "Você tem certeza absoluta?",
+    "errorMessage": "Há um erro",
+    "goBack": "Volte",
+    "home": "Home",
+    "loading": "Carregando",
+    "noResults": "",
+    "project": "Projeto",
+    "projects": "",
+    "results": "",
+    "solve": "Calcular",
+    "towerGeometries": "Geometrias da Torre"
+  },
+  "generateConductors": {
+    "circuits": {
+      "description": "Número de circuitos distintos na linha de transmissão.",
+      "label": "Circuitos"
+    },
+    "modalDescription": "Gere uma configuração para os condutores da linha de transmissão.",
+    "modalTitle": "Gerar Condutores",
+    "neutralConductorType": {
+      "description": "O tipo de cabo usado para cabos aéreos neutros.",
+      "label": "Tipo de condutor neutro"
+    },
+    "neutrals": {
+      "description": "Número de condutores de aterramento aéreos.",
+      "label": "Número de condutores neutros"
+    },
+    "phaseConductorType": {
+      "description": "O tipo de cabo usado para os condutores de fase.",
+      "label": "Tipo de condutor de fase"
+    },
+    "phases": {
+      "description": "Número de fases por circuito.",
+      "label": "Fases"
+    },
+    "tooltip": "Gerar a lista de condutores"
+  },
+  "generateTowers": {
+    "distance": {
+      "description": "Comprimento total da linha de transmissão em quilômetros.",
+      "label": "Distância total"
+    },
+    "geometryId": {
+      "description": "A geometria de torre mais comumente usada.",
+      "label": "Geometria da Torre"
+    },
+    "modalDescription": "Gere uma configuração para as torres de transmissão ao longo da linha.",
+    "modalTitle": "Gerar Torres de Transmissão",
+    "namePrefix": {
+      "description": "Isso será usado para gerar um nome exclusivo, ou seja. \n\"T\" irá gerar T1, T2, T3, etc.",
+      "label": "Prefixo do nome"
+    },
+    "numTowers": {
+      "description": "O número total de torres ao longo da linha de transmissão.",
+      "label": "Número de Torres"
+    },
+    "resistance": {
+      "description": "A resistência média das torres de transmissão.",
+      "label": "Resistência das Torres"
+    },
+    "tooltip": "Gere a lista de torres"
+  },
+  "home": {
+    "openProject": "Abrir Projeto"
+  },
+  "pageNotFound": {
+    "text": "A página que você estava procurando não foi encontrada.",
+    "title": "Página não encontrada"
+  },
+  "project": {
+    "description": "Seu projeto atual",
+    "save": {
+      "buttonText": "Salvar projeto"
+    },
+    "title": "Projeto"
+  },
+  "projectLines": {
+    "add": {
+      "buttonText": ""
+    }
+  },
+  "projectSources": {
+    "add": {
+      "buttonText": ""
+    }
+  },
+  "projectTable": {
+    "name": {
+      "label": ""
+    }
+  },
+  "singleFault": {
+    "current": {
+      "title": "Ampères (A)",
+      "tooltipLabel": "Corrente: {{current}} A"
+    },
+    "graph": {
+      "title": "Corrente para terra em cada torre"
+    },
+    "location": {
+      "title": "Localização",
+      "tooltipLabel": "Nome: {{name}}"
+    },
+    "resistance": {
+      "tooltipLabel": "Resistência: {{resistance}} Ω"
+    },
+    "title": "Falha na linha de transmissão em {{lineName}} - {{towerName}}",
+    "towerGeometry": {
+      "tooltipLabel": "Geometria da Torre"
+    }
+  },
+  "source": {
+    "add": {
+      "buttonText": "Adicionar fonte",
+      "buttonTooltip": "Adicione uma fonte ao projeto",
+      "description": "Adicione uma fonte ao projeto",
+      "title": "Adicionar uma fonte"
+    },
+    "deletionWarning": "Isso excluirá permanentemente a fonte.",
+    "edit": {
+      "title": "Editar fonte"
+    },
+    "isc1": {
+      "description": "Corrente monofásica de curto-circuito.",
+      "label": "Corrente monofásica de curto-circuito"
+    },
+    "isc3": {
+      "description": "Corrente trifásica de curto-circuito.",
+      "label": "Corrente trifásica de curto-circuito"
+    },
+    "name": {
+      "description": "Nome da subestação.",
+      "label": "Nome",
+      "placeholder": "Subestação um..."
+    },
+    "noneFound": "Nenhuma fonte encontrada.",
+    "phases": {
+      "description": "Número de fases.",
+      "label": "Fases"
+    },
+    "resistance": {
+      "description": "Resistência da Fonte em ohms.",
+      "label": "Resistência"
+    },
+    "searchSources": "Fontes de pesquisa...",
+    "select": "Selecione a fonte",
+    "title": "Fontes",
+    "voltage": {
+      "description": "Tensão linha a linha em kV.",
+      "label": "Tensão"
+    },
+    "x0r0": {
+      "description": "X0/R0 da fonte.",
+      "label": "X0/R0"
+    },
+    "x1r1": {
+      "description": "X1/R1 da fonte.",
+      "label": "X1/R1"
+    }
+  },
+  "table": {
+    "actions": "Ações"
+  },
+  "towerConfiguration": {
+    "addTooltip": "Adicionar uma torre",
+    "deleteAllTooltip": "Excluir todas as torres",
+    "description": "Configurar as torres da linha de transmissão",
+    "distance": {
+      "label": "Distância"
+    },
+    "geometry": {
+      "label": "Geometria"
+    },
+    "name": {
+      "label": "Nome"
+    },
+    "resistance": {
+      "label": "Resistência"
+    },
+    "title": "Configuração da torre"
+  },
+  "towerGeomeryConductors": {
+    "title": ""
+  },
+  "towerGeometriesPage": {
+    "add": {
+      "buttonText": ""
+    }
+  },
+  "towerGeometry": {
+    "add": {
+      "buttonText": "Adicionar geometria de torre",
+      "title": "Adicionar geometria de torre"
+    },
+    "edit": {
+      "title": "Editar geometria da torre"
+    },
+    "name": {
+      "description": "Um nome exclusivo para a geometria da torre.",
+      "label": "Nome"
+    },
+    "noneFound": "Nenhuma geometria de torre encontrada.",
+    "nothingSelected": "Selecione um tipo de geometria",
+    "searchPlaceholder": "Pesquisar geometrias de torre..."
+  },
+  "transmissionLine": {
+    "add": {
+      "buttonText": "Adicionar linha de transmissão",
+      "buttonTooltip": "Adicione uma linha de transmissão ao projeto",
+      "title": "Adicionar linha de transmissão"
+    },
+    "build": {
+      "cMatrix": {
+        "title": "cMatriz (nF/km):"
+      },
+      "rMatrix": {
+        "title": "rMatriz (Ω/km):"
+      },
+      "title": "Geometria para Linha de Transmissão: {{lineName}}",
+      "usingGeometry": "Usando o tipo de geometria: {{geometryName}}",
+      "xMatrix": {
+        "title": "xMatriz (Ω/km):"
+      }
+    },
+    "deletionWarning": "Isso excluirá permanentemente a Linha de Transmissão.",
+    "edit": {
+    },
+    "fromSource": {
+      "description": "O ponto de partida da linha de transmissão",
+      "label": "Da fonte"
+    },
+    "name": {
+      "description": "Nome da linha de transmissão.",
+      "label": "Nome",
+      "placeholder": "Linha 1..."
+    },
+    "title": "Linhas de transmissão",
+    "toSource": {
+      "description": "O ponto final da linha de transmissão",
+      "label": "Até fonte"
+    },
+    "update": {
+      "description": "",
+      "title": "Editar linha de transmissão"
+    }
+  },
+  "transmissionLineConductors": {
+    "description": "",
+    "title": ""
+  },
+  "updateConductorLocationModal": {
+    "x": {
+      "label": ""
+    },
+    "y": {
+      "label": ""
+    }
+  },
+  "updateConductorModal": {
+    "bundleNumber": {
+      "label": ""
+    },
+    "bundleSpacing": {
+      "label": ""
+    },
+    "fromPhase": {
+      "label": ""
+    },
+    "isNeutral": {
+      "label": ""
+    },
+    "modalTitle": "",
+    "name": {
+      "description": "",
+      "label": ""
+    },
+    "toPhase": {
+      "label": ""
+    },
+    "typeId": {
+      "label": ""
+    }
+  },
+  "updateProjectForm": {
+    "name": {
+      "label": ""
+    }
+  },
+  "updateSourceElectricalForm": {
+    "frequency": {
+      "label": ""
+    },
+    "isc1": {
+      "label": ""
+    },
+    "isc3": {
+      "label": ""
+    },
+    "phases": {
+      "label": ""
+    },
+    "resistance": {
+      "label": ""
+    },
+    "voltage": {
+      "label": ""
+    },
+    "x0r0": {
+      "label": ""
+    },
+    "x1r1": {
+      "label": ""
+    }
+  },
+  "updateSourceForm": {
+    "name": {
+      "label": ""
+    }
+  },
+  "updateTowerModal": {
+    "distance": {
+      "label": ""
+    },
+    "geometryId": {
+      "label": ""
+    },
+    "modalTitle": "",
+    "name": {
+      "label": ""
+    },
+    "resistance": {
+      "label": ""
+    }
+  },
+  "welcome": {
+    "title": "Bem-vindo"
+  },
+  "worstCaseResults": {
+    "current": {
+      "title": "Ampères (A)"
+    },
+    "location": {
+      "title": "Localização"
+    },
+    "title": "Pior cenário para cada torre de transmissão"
+  }
+}

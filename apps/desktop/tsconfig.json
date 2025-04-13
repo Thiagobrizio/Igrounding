@@ -1,0 +1,15 @@
+{
+    "extends": "@repo/typescript-config/internal-package.json",
+    "compilerOptions": {
+        "rootDir": "src",
+        "outDir": "dist",
+        "lib": ["dom", "dom.iterable", "ES2022"],
+        "jsx": "preserve",
+        "tsBuildInfoFile": "node_modules/.cache/tsbuildinfo.json"
+    },
+    "tsc-alias": {
+        "resolveFullPaths": true
+    },
+    "include": ["src"],
+    "exclude": ["node_modules"]
+}

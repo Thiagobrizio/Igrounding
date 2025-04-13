@@ -1,0 +1,14 @@
+{
+    "extends": "@repo/typescript-config/internal-package.json",
+    "compilerOptions": {
+        "declaration": false,
+        "declarationMap": false,
+        "outDir": "dist",
+        "tsBuildInfoFile": "node_modules/.cache/tsbuildinfo.json"
+    },
+    "tsc-alias": {
+        "resolveFullPaths": true
+    },
+    "include": ["src"],
+    "exclude": ["node_modules"]
+}

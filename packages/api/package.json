@@ -1,0 +1,52 @@
+{
+    "name": "@repo/api",
+    "private": true,
+    "type": "module",
+    "exports": {
+        ".": "./src/index.ts",
+        "./routers/*": "./src/routers/*.ts",
+        "./router": "./src/routers/index.ts",
+        "./store": "./src/store.ts"
+    },
+    "files": [
+        "dist"
+    ],
+    "scripts": {
+        "clean": "rm -rf .turbo node_modules dist",
+        "lint": "eslint .",
+        "lint:fix": "eslint . --fix",
+        "test": "vitest run",
+        "typecheck": "tsc --noEmit --pretty"
+    },
+    "dependencies": {
+        "@repo/db": "workspace:^",
+        "@repo/solution": "workspace:^",
+        "@repo/validators": "workspace:*",
+        "@trpc/server": "11.0.0-rc.364",
+        "body-parser": "^1.20.3",
+        "cors": "^2.8.5",
+        "express": "^4.21.1",
+        "mathjs": "^13.2.0",
+        "morgan": "^1.10.0",
+        "zod": "^3.23.8"
+    },
+    "devDependencies": {
+        "@repo/eslint-config": "workspace:*",
+        "@repo/typescript-config": "workspace:*",
+        "@types/body-parser": "^1.19.5",
+        "@types/cors": "^2.8.17",
+        "@types/express": "^5.0.0",
+        "@types/morgan": "^1.9.9",
+        "@types/node": "^22.7.8",
+        "@types/supertest": "^6.0.2",
+        "concurrently": "^9.0.1",
+        "electron": "^31.7.1",
+        "eslint": "^9.13.0",
+        "supertest": "^7.0.0",
+        "typeorm": "^0.3.20",
+        "typescript": "^5.6.3",
+        "vite": "^5.4.9",
+        "vite-tsconfig-paths": "^5.0.1",
+        "vitest": "^2.1.3"
+    }
+}

@@ -1,0 +1,1470 @@
+diff --git a/dist/main.cjs b/dist/main.cjs
+index ed70ed9564812d87ba2e132bba610234956c105d..16dbfbf07d3d0fce528411f24d03f67cddd6caff 100644
+--- a/dist/main.cjs
++++ b/dist/main.cjs
+@@ -1 +1 @@
+-"use strict";var S=(n,r,e)=>{if(!r.has(n))throw TypeError("Cannot "+e)};var F=(n,r,e)=>(S(n,r,"read from private field"),e?e.call(n):r.get(n)),y=(n,r,e)=>{if(r.has(n))throw TypeError("Cannot add the same private member more than once");r instanceof WeakSet?r.add(n):r.set(n,e)},U=(n,r,e,i)=>(S(n,r,"write to private field"),i?i.call(n,e):r.set(n,e),e);var v=(n,r,e)=>(S(n,r,"access private method"),e);Object.defineProperty(exports,Symbol.toStringTag,{value:"Module"});const I=require("electron"),R="electron-trpc";function ee(n){return!!n&&!Array.isArray(n)&&typeof n=="object"}class re extends Error{}function ne(n){if(n instanceof Error)return n;const r=typeof n;if(!(r==="undefined"||r==="function"||n===null)){if(r!=="object")return new Error(String(n));if(ee(n)){const e=new re;for(const i in n)e[i]=n[i];return e}}}class N extends Error{constructor(r){const e=ne(r.cause),i=r.message??(e==null?void 0:e.message)??r.code;super(i,{cause:e}),this.code=r.code,this.name="TRPCError",this.cause||(this.cause=e)}}function Y(n){const r=Object.create(null);for(const e in n){const i=n[e];r[i]=e}return r}const K={PARSE_ERROR:-32700,BAD_REQUEST:-32600,INTERNAL_SERVER_ERROR:-32603,NOT_IMPLEMENTED:-32603,UNAUTHORIZED:-32001,FORBIDDEN:-32003,NOT_FOUND:-32004,METHOD_NOT_SUPPORTED:-32005,TIMEOUT:-32008,CONFLICT:-32009,PRECONDITION_FAILED:-32012,PAYLOAD_TOO_LARGE:-32013,UNPROCESSABLE_CONTENT:-32022,TOO_MANY_REQUESTS:-32029,CLIENT_CLOSED_REQUEST:-32099};Y(K);Y(K);function te(n){var a;const{type:r,path:e}=n;if(!(e in n.procedures)||!((a=n.procedures[e])!=null&&a._def[r]))throw new N({code:"NOT_FOUND",message:`No "${r}"-procedure on path "${e}"`});const i=n.procedures[e];return i(n)}var W,z,x,B,V,J;typeof window>"u"||"Deno"in window||((z=(W=globalThis.process)==null?void 0:W.env)==null?void 0:z.NODE_ENV)==="test"||(B=(x=globalThis.process)==null?void 0:x.env)!=null&&B.JEST_WORKER_ID||(J=(V=globalThis.process)==null?void 0:V.env)!=null&&J.VITEST_WORKER_ID;function oe(n){return typeof n=="object"&&n!==null&&"subscribe"in n}function $(n,r){return"error"in r?{...r,error:n.transformer.output.serialize(r.error)}:"data"in r.result?{...r,result:{...r.result,data:n.transformer.output.serialize(r.result.data)}}:r}function se(n,r){return Array.isArray(r)?r.map(e=>$(n,e)):$(n,r)}function j(n){if(n instanceof N)return n;const r=ie(n),e=new N({code:"INTERNAL_SERVER_ERROR",cause:r,message:r.message});return e.stack=r.stack,e}function ie(n){return n instanceof Error?n:typeof n=="string"?new Error(n):new Error("Unknown error")}function ce(n){return n&&n.__esModule&&Object.prototype.hasOwnProperty.call(n,"default")?n.default:n}var M={exports:{}},D,H;function ae(){if(H)return D;H=1;var n=1e3,r=n*60,e=r*60,i=e*24,a=i*7,C=i*365.25;D=function(t,o){o=o||{};var s=typeof t;if(s==="string"&&t.length>0)return p(t);if(s==="number"&&isFinite(t))return o.long?c(t):g(t);throw new Error("val is not a non-empty string or a valid number. val="+JSON.stringify(t))};function p(t){if(t=String(t),!(t.length>100)){var o=/^(-?(?:\d+)?\.?\d+) *(milliseconds?|msecs?|ms|seconds?|secs?|s|minutes?|mins?|m|hours?|hrs?|h|days?|d|weeks?|w|years?|yrs?|y)?$/i.exec(t);if(o){var s=parseFloat(o[1]),d=(o[2]||"ms").toLowerCase();switch(d){case"years":case"year":case"yrs":case"yr":case"y":return s*C;case"weeks":case"week":case"w":return s*a;case"days":case"day":case"d":return s*i;case"hours":case"hour":case"hrs":case"hr":case"h":return s*e;case"minutes":case"minute":case"mins":case"min":case"m":return s*r;case"seconds":case"second":case"secs":case"sec":case"s":return s*n;case"milliseconds":case"millisecond":case"msecs":case"msec":case"ms":return s;default:return}}}}function g(t){var o=Math.abs(t);return o>=i?Math.round(t/i)+"d":o>=e?Math.round(t/e)+"h":o>=r?Math.round(t/r)+"m":o>=n?Math.round(t/n)+"s":t+"ms"}function c(t){var o=Math.abs(t);return o>=i?u(t,o,i,"day"):o>=e?u(t,o,e,"hour"):o>=r?u(t,o,r,"minute"):o>=n?u(t,o,n,"second"):t+" ms"}function u(t,o,s,d){var h=o>=s*1.5;return Math.round(t/s)+" "+d+(h?"s":"")}return D}function ue(n){e.debug=e,e.default=e,e.coerce=c,e.disable=C,e.enable=a,e.enabled=p,e.humanize=ae(),e.destroy=u,Object.keys(n).forEach(t=>{e[t]=n[t]}),e.names=[],e.skips=[],e.formatters={};function r(t){let o=0;for(let s=0;s<t.length;s++)o=(o<<5)-o+t.charCodeAt(s),o|=0;return e.colors[Math.abs(o)%e.colors.length]}e.selectColor=r;function e(t){let o,s=null,d,h;function l(...f){if(!l.enabled)return;const b=l,T=Number(new Date),G=T-(o||T);b.diff=G,b.prev=o,b.curr=T,o=T,f[0]=e.coerce(f[0]),typeof f[0]!="string"&&f.unshift("%O");let _=0;f[0]=f[0].replace(/%([a-zA-Z%])/g,(P,q)=>{if(P==="%%")return"%";_++;const L=e.formatters[q];if(typeof L=="function"){const X=f[_];P=L.call(b,X),f.splice(_,1),_--}return P}),e.formatArgs.call(b,f),(b.log||e.log).apply(b,f)}return l.namespace=t,l.useColors=e.useColors(),l.color=e.selectColor(t),l.extend=i,l.destroy=e.destroy,Object.defineProperty(l,"enabled",{enumerable:!0,configurable:!1,get:()=>s!==null?s:(d!==e.namespaces&&(d=e.namespaces,h=e.enabled(t)),h),set:f=>{s=f}}),typeof e.init=="function"&&e.init(l),l}function i(t,o){const s=e(this.namespace+(typeof o>"u"?":":o)+t);return s.log=this.log,s}function a(t){e.save(t),e.namespaces=t,e.names=[],e.skips=[];let o;const s=(typeof t=="string"?t:"").split(/[\s,]+/),d=s.length;for(o=0;o<d;o++)s[o]&&(t=s[o].replace(/\*/g,".*?"),t[0]==="-"?e.skips.push(new RegExp("^"+t.slice(1)+"$")):e.names.push(new RegExp("^"+t+"$")))}function C(){const t=[...e.names.map(g),...e.skips.map(g).map(o=>"-"+o)].join(",");return e.enable(""),t}function p(t){if(t[t.length-1]==="*")return!0;let o,s;for(o=0,s=e.skips.length;o<s;o++)if(e.skips[o].test(t))return!1;for(o=0,s=e.names.length;o<s;o++)if(e.names[o].test(t))return!0;return!1}function g(t){return t.toString().substring(2,t.toString().length-2).replace(/\.\*\?$/,"*")}function c(t){return t instanceof Error?t.stack||t.message:t}function u(){console.warn("Instance method `debug.destroy()` is deprecated and no longer does anything. It will be removed in the next major version of `debug`.")}return e.enable(e.load()),e}var de=ue;(function(n,r){r.formatArgs=i,r.save=a,r.load=C,r.useColors=e,r.storage=p(),r.destroy=(()=>{let c=!1;return()=>{c||(c=!0,console.warn("Instance method `debug.destroy()` is deprecated and no longer does anything. It will be removed in the next major version of `debug`."))}})(),r.colors=["#0000CC","#0000FF","#0033CC","#0033FF","#0066CC","#0066FF","#0099CC","#0099FF","#00CC00","#00CC33","#00CC66","#00CC99","#00CCCC","#00CCFF","#3300CC","#3300FF","#3333CC","#3333FF","#3366CC","#3366FF","#3399CC","#3399FF","#33CC00","#33CC33","#33CC66","#33CC99","#33CCCC","#33CCFF","#6600CC","#6600FF","#6633CC","#6633FF","#66CC00","#66CC33","#9900CC","#9900FF","#9933CC","#9933FF","#99CC00","#99CC33","#CC0000","#CC0033","#CC0066","#CC0099","#CC00CC","#CC00FF","#CC3300","#CC3333","#CC3366","#CC3399","#CC33CC","#CC33FF","#CC6600","#CC6633","#CC9900","#CC9933","#CCCC00","#CCCC33","#FF0000","#FF0033","#FF0066","#FF0099","#FF00CC","#FF00FF","#FF3300","#FF3333","#FF3366","#FF3399","#FF33CC","#FF33FF","#FF6600","#FF6633","#FF9900","#FF9933","#FFCC00","#FFCC33"];function e(){return typeof window<"u"&&window.process&&(window.process.type==="renderer"||window.process.__nwjs)?!0:typeof navigator<"u"&&navigator.userAgent&&navigator.userAgent.toLowerCase().match(/(edge|trident)\/(\d+)/)?!1:typeof document<"u"&&document.documentElement&&document.documentElement.style&&document.documentElement.style.WebkitAppearance||typeof window<"u"&&window.console&&(window.console.firebug||window.console.exception&&window.console.table)||typeof navigator<"u"&&navigator.userAgent&&navigator.userAgent.toLowerCase().match(/firefox\/(\d+)/)&&parseInt(RegExp.$1,10)>=31||typeof navigator<"u"&&navigator.userAgent&&navigator.userAgent.toLowerCase().match(/applewebkit\/(\d+)/)}function i(c){if(c[0]=(this.useColors?"%c":"")+this.namespace+(this.useColors?" %c":" ")+c[0]+(this.useColors?"%c ":" ")+"+"+n.exports.humanize(this.diff),!this.useColors)return;const u="color: "+this.color;c.splice(1,0,u,"color: inherit");let t=0,o=0;c[0].replace(/%[a-zA-Z%]/g,s=>{s!=="%%"&&(t++,s==="%c"&&(o=t))}),c.splice(o,0,u)}r.log=console.debug||console.log||(()=>{});function a(c){try{c?r.storage.setItem("debug",c):r.storage.removeItem("debug")}catch{}}function C(){let c;try{c=r.storage.getItem("debug")}catch{}return!c&&typeof process<"u"&&"env"in process&&(c=process.env.DEBUG),c}function p(){try{return localStorage}catch{}}n.exports=de(r);const{formatters:g}=n.exports;g.j=function(c){try{return JSON.stringify(c)}catch(u){return"[UnexpectedJSONParseError]: "+u.message}}})(M,M.exports);var le=M.exports;const Q=ce(le),fe=Q("electron-trpc:main:handleIPCMessage");async function Ce({router:n,createContext:r,internalId:e,message:i,event:a,subscriptions:C}){if(i.method==="subscription.stop"){const d=C.get(e);if(!d)return;d.unsubscribe(),C.delete(e);return}const{type:p,input:g,path:c,id:u}=i.operation,t=g?n._def._config.transformer.input.deserialize(g):void 0,o=await(r==null?void 0:r({event:a}))??{},s=d=>{a.sender.isDestroyed()||a.reply(R,se(n._def._config,d))};try{const d=await te({ctx:o,path:c,procedures:n._def.procedures,rawInput:t,type:p});if(p!=="subscription"){s({id:u,result:{type:"data",data:d}});return}else if(!oe(d))throw new N({message:`Subscription ${c} did not return an observable`,code:"INTERNAL_SERVER_ERROR"});const h=d.subscribe({next(l){s({id:u,result:{type:"data",data:l}})},error(l){const f=j(l);s({id:u,error:n.getErrorShape({error:f,type:p,path:c,input:t,ctx:o})})},complete(){s({id:u,result:{type:"stopped"}})}});fe("Creating subscription",e),C.set(e,h)}catch(d){const h=j(d);return s({id:u,error:n.getErrorShape({error:h,type:p,path:c,input:t,ctx:o})})}}const m=Q("electron-trpc:main:IPCHandler"),pe=(n,r)=>{const e=r.method==="request"?r.operation.id:r.id;return`${n.sender.id}-${n.senderFrame.routingId}:${e}`};var E,w,O,k,A,Z;class ge{constructor({createContext:r,router:e,windows:i=[]}){y(this,O);y(this,A);y(this,E,[]);y(this,w,new Map);i.forEach(a=>this.attachWindow(a)),I.ipcMain.on(R,(a,C)=>{Ce({router:e,createContext:r,internalId:pe(a,C),event:a,message:C,subscriptions:F(this,w)})})}attachWindow(r){F(this,E).includes(r)||(m("Attaching window",r.id),F(this,E).push(r),v(this,A,Z).call(this,r))}detachWindow(r){m("Detaching window",r.id),U(this,E,F(this,E).filter(e=>e!==r)),v(this,O,k).call(this,{webContentsId:r.webContents.id})}}E=new WeakMap,w=new WeakMap,O=new WeakSet,k=function({webContentsId:r,frameRoutingId:e}){for(const[i,a]of F(this,w).entries())i.startsWith(`${r}-${e??""}`)&&(m("Closing subscription",i),a.unsubscribe(),F(this,w).delete(i))},A=new WeakSet,Z=function(r){r.webContents.on("did-start-navigation",({frame:e})=>{m("Handling webContents `did-start-navigation` event",`webContentsId: ${r.webContents.id}`,`frameRoutingId: ${e.routingId}`),v(this,O,k).call(this,{webContentsId:r.webContents.id,frameRoutingId:e.routingId})}),r.webContents.on("destroyed",()=>{m("Handling webContents `destroyed` event"),this.detachWindow(r)})};const he=({createContext:n,router:r,windows:e=[]})=>new ge({createContext:n,router:r,windows:e}),be=()=>{const n={sendMessage:r=>I.ipcRenderer.send(R,r),onMessage:r=>I.ipcRenderer.on(R,(e,i)=>r(i))};I.contextBridge.exposeInMainWorld("electronTRPC",n)};exports.ELECTRON_TRPC_CHANNEL=R;exports.createIPCHandler=he;exports.exposeElectronTRPC=be;
++"use strict";var D=(r,t,e)=>{if(!t.has(r))throw TypeError("Cannot "+e)};var F=(r,t,e)=>(D(r,t,"read from private field"),e?e.call(r):t.get(r)),y=(r,t,e)=>{if(t.has(r))throw TypeError("Cannot add the same private member more than once");t instanceof WeakSet?t.add(r):t.set(r,e)},k=(r,t,e,i)=>(D(r,t,"write to private field"),i?i.call(r,e):t.set(r,e),e);var N=(r,t,e)=>(D(r,t,"access private method"),e);Object.defineProperty(exports,Symbol.toStringTag,{value:"Module"});const I=require("electron"),w="electron-trpc";function X(r){return!!r&&!Array.isArray(r)&&typeof r=="object"}class ee extends Error{}function re(r){if(r instanceof Error)return r;const t=typeof r;if(!(t==="undefined"||t==="function"||r===null)){if(t!=="object")return new Error(String(r));if(X(r)){const e=new ee;for(const i in r)e[i]=r[i];return e}}}function $(r){if(r instanceof P||r instanceof Error&&r.name==="TRPCError")return r;const t=new P({code:"INTERNAL_SERVER_ERROR",cause:r});return r instanceof Error&&r.stack&&(t.stack=r.stack),t}class P extends Error{constructor(t){const e=re(t.cause),i=t.message??(e==null?void 0:e.message)??t.code;super(i,{cause:e}),this.code=t.code,this.name="TRPCError",this.cause||(this.cause=e)}}const te={PARSE_ERROR:-32700,BAD_REQUEST:-32600,INTERNAL_SERVER_ERROR:-32603,NOT_IMPLEMENTED:-32603,UNAUTHORIZED:-32001,FORBIDDEN:-32003,NOT_FOUND:-32004,METHOD_NOT_SUPPORTED:-32005,TIMEOUT:-32008,CONFLICT:-32009,PRECONDITION_FAILED:-32012,UNSUPPORTED_MEDIA_TYPE:-32015,PAYLOAD_TOO_LARGE:-32013,UNPROCESSABLE_CONTENT:-32022,TOO_MANY_REQUESTS:-32029,CLIENT_CLOSED_REQUEST:-32099},ne={PARSE_ERROR:400,BAD_REQUEST:400,UNAUTHORIZED:401,NOT_FOUND:404,FORBIDDEN:403,METHOD_NOT_SUPPORTED:405,TIMEOUT:408,CONFLICT:409,PRECONDITION_FAILED:412,PAYLOAD_TOO_LARGE:413,UNSUPPORTED_MEDIA_TYPE:415,UNPROCESSABLE_CONTENT:422,TOO_MANY_REQUESTS:429,CLIENT_CLOSED_REQUEST:499,INTERNAL_SERVER_ERROR:500,NOT_IMPLEMENTED:501};function oe(r){return ne[r]??500}function se(r){return oe(r.code)}function H(r){const{path:t,error:e,config:i}=r,{code:a}=r.error,l={message:e.message,code:te[a],data:{code:a,httpStatus:se(e)}};return i.isDev&&typeof r.error.stack=="string"&&(l.data.stack=r.error.stack),typeof t=="string"&&(l.data.path=t),i.errorFormatter({...r,shape:l})}function j(r,t){return"error"in t?{...t,error:r.transformer.output.serialize(t.error)}:"data"in t.result?{...t,result:{...t.result,data:r.transformer.output.serialize(t.result.data)}}:t}function ie(r,t){return Array.isArray(t)?t.map(e=>j(r,e)):j(r,t)}function ce(r){return typeof r=="function"}function ae(r){const{type:t,path:e}=r,i=r.procedures[e];if(!i||!ce(i)||i._def.type!==t&&!r.allowMethodOverride)throw new P({code:"NOT_FOUND",message:`No "${t}"-procedure on path "${e}"`});return i(r)}var W,z,Y,x,Q,V;typeof window>"u"||"Deno"in window||((z=(W=globalThis.process)==null?void 0:W.env)==null?void 0:z.NODE_ENV)==="test"||(x=(Y=globalThis.process)==null?void 0:Y.env)!=null&&x.JEST_WORKER_ID||(V=(Q=globalThis.process)==null?void 0:Q.env)!=null&&V.VITEST_WORKER_ID;function ue(r){return typeof r=="object"&&r!==null&&"subscribe"in r}function de(r){return r&&r.__esModule&&Object.prototype.hasOwnProperty.call(r,"default")?r.default:r}var M={exports:{}},v,B;function le(){if(B)return v;B=1;var r=1e3,t=r*60,e=t*60,i=e*24,a=i*7,l=i*365.25;v=function(n,o){o=o||{};var s=typeof n;if(s==="string"&&n.length>0)return p(n);if(s==="number"&&isFinite(n))return o.long?c(n):g(n);throw new Error("val is not a non-empty string or a valid number. val="+JSON.stringify(n))};function p(n){if(n=String(n),!(n.length>100)){var o=/^(-?(?:\d+)?\.?\d+) *(milliseconds?|msecs?|ms|seconds?|secs?|s|minutes?|mins?|m|hours?|hrs?|h|days?|d|weeks?|w|years?|yrs?|y)?$/i.exec(n);if(o){var s=parseFloat(o[1]),d=(o[2]||"ms").toLowerCase();switch(d){case"years":case"year":case"yrs":case"yr":case"y":return s*l;case"weeks":case"week":case"w":return s*a;case"days":case"day":case"d":return s*i;case"hours":case"hour":case"hrs":case"hr":case"h":return s*e;case"minutes":case"minute":case"mins":case"min":case"m":return s*t;case"seconds":case"second":case"secs":case"sec":case"s":return s*r;case"milliseconds":case"millisecond":case"msecs":case"msec":case"ms":return s;default:return}}}}function g(n){var o=Math.abs(n);return o>=i?Math.round(n/i)+"d":o>=e?Math.round(n/e)+"h":o>=t?Math.round(n/t)+"m":o>=r?Math.round(n/r)+"s":n+"ms"}function c(n){var o=Math.abs(n);return o>=i?u(n,o,i,"day"):o>=e?u(n,o,e,"hour"):o>=t?u(n,o,t,"minute"):o>=r?u(n,o,r,"second"):n+" ms"}function u(n,o,s,d){var E=o>=s*1.5;return Math.round(n/s)+" "+d+(E?"s":"")}return v}function fe(r){e.debug=e,e.default=e,e.coerce=c,e.disable=l,e.enable=a,e.enabled=p,e.humanize=le(),e.destroy=u,Object.keys(r).forEach(n=>{e[n]=r[n]}),e.names=[],e.skips=[],e.formatters={};function t(n){let o=0;for(let s=0;s<n.length;s++)o=(o<<5)-o+n.charCodeAt(s),o|=0;return e.colors[Math.abs(o)%e.colors.length]}e.selectColor=t;function e(n){let o,s=null,d,E;function f(...C){if(!f.enabled)return;const h=f,_=Number(new Date),Z=_-(o||_);h.diff=Z,h.prev=o,h.curr=_,o=_,C[0]=e.coerce(C[0]),typeof C[0]!="string"&&C.unshift("%O");let O=0;C[0]=C[0].replace(/%([a-zA-Z%])/g,(S,G)=>{if(S==="%%")return"%";O++;const U=e.formatters[G];if(typeof U=="function"){const q=C[O];S=U.call(h,q),C.splice(O,1),O--}return S}),e.formatArgs.call(h,C),(h.log||e.log).apply(h,C)}return f.namespace=n,f.useColors=e.useColors(),f.color=e.selectColor(n),f.extend=i,f.destroy=e.destroy,Object.defineProperty(f,"enabled",{enumerable:!0,configurable:!1,get:()=>s!==null?s:(d!==e.namespaces&&(d=e.namespaces,E=e.enabled(n)),E),set:C=>{s=C}}),typeof e.init=="function"&&e.init(f),f}function i(n,o){const s=e(this.namespace+(typeof o>"u"?":":o)+n);return s.log=this.log,s}function a(n){e.save(n),e.namespaces=n,e.names=[],e.skips=[];let o;const s=(typeof n=="string"?n:"").split(/[\s,]+/),d=s.length;for(o=0;o<d;o++)s[o]&&(n=s[o].replace(/\*/g,".*?"),n[0]==="-"?e.skips.push(new RegExp("^"+n.slice(1)+"$")):e.names.push(new RegExp("^"+n+"$")))}function l(){const n=[...e.names.map(g),...e.skips.map(g).map(o=>"-"+o)].join(",");return e.enable(""),n}function p(n){if(n[n.length-1]==="*")return!0;let o,s;for(o=0,s=e.skips.length;o<s;o++)if(e.skips[o].test(n))return!1;for(o=0,s=e.names.length;o<s;o++)if(e.names[o].test(n))return!0;return!1}function g(n){return n.toString().substring(2,n.toString().length-2).replace(/\.\*\?$/,"*")}function c(n){return n instanceof Error?n.stack||n.message:n}function u(){console.warn("Instance method `debug.destroy()` is deprecated and no longer does anything. It will be removed in the next major version of `debug`.")}return e.enable(e.load()),e}var Ce=fe;(function(r,t){t.formatArgs=i,t.save=a,t.load=l,t.useColors=e,t.storage=p(),t.destroy=(()=>{let c=!1;return()=>{c||(c=!0,console.warn("Instance method `debug.destroy()` is deprecated and no longer does anything. It will be removed in the next major version of `debug`."))}})(),t.colors=["#0000CC","#0000FF","#0033CC","#0033FF","#0066CC","#0066FF","#0099CC","#0099FF","#00CC00","#00CC33","#00CC66","#00CC99","#00CCCC","#00CCFF","#3300CC","#3300FF","#3333CC","#3333FF","#3366CC","#3366FF","#3399CC","#3399FF","#33CC00","#33CC33","#33CC66","#33CC99","#33CCCC","#33CCFF","#6600CC","#6600FF","#6633CC","#6633FF","#66CC00","#66CC33","#9900CC","#9900FF","#9933CC","#9933FF","#99CC00","#99CC33","#CC0000","#CC0033","#CC0066","#CC0099","#CC00CC","#CC00FF","#CC3300","#CC3333","#CC3366","#CC3399","#CC33CC","#CC33FF","#CC6600","#CC6633","#CC9900","#CC9933","#CCCC00","#CCCC33","#FF0000","#FF0033","#FF0066","#FF0099","#FF00CC","#FF00FF","#FF3300","#FF3333","#FF3366","#FF3399","#FF33CC","#FF33FF","#FF6600","#FF6633","#FF9900","#FF9933","#FFCC00","#FFCC33"];function e(){return typeof window<"u"&&window.process&&(window.process.type==="renderer"||window.process.__nwjs)?!0:typeof navigator<"u"&&navigator.userAgent&&navigator.userAgent.toLowerCase().match(/(edge|trident)\/(\d+)/)?!1:typeof document<"u"&&document.documentElement&&document.documentElement.style&&document.documentElement.style.WebkitAppearance||typeof window<"u"&&window.console&&(window.console.firebug||window.console.exception&&window.console.table)||typeof navigator<"u"&&navigator.userAgent&&navigator.userAgent.toLowerCase().match(/firefox\/(\d+)/)&&parseInt(RegExp.$1,10)>=31||typeof navigator<"u"&&navigator.userAgent&&navigator.userAgent.toLowerCase().match(/applewebkit\/(\d+)/)}function i(c){if(c[0]=(this.useColors?"%c":"")+this.namespace+(this.useColors?" %c":" ")+c[0]+(this.useColors?"%c ":" ")+"+"+r.exports.humanize(this.diff),!this.useColors)return;const u="color: "+this.color;c.splice(1,0,u,"color: inherit");let n=0,o=0;c[0].replace(/%[a-zA-Z%]/g,s=>{s!=="%%"&&(n++,s==="%c"&&(o=n))}),c.splice(o,0,u)}t.log=console.debug||console.log||(()=>{});function a(c){try{c?t.storage.setItem("debug",c):t.storage.removeItem("debug")}catch{}}function l(){let c;try{c=t.storage.getItem("debug")}catch{}return!c&&typeof process<"u"&&"env"in process&&(c=process.env.DEBUG),c}function p(){try{return localStorage}catch{}}r.exports=Ce(t);const{formatters:g}=r.exports;g.j=function(c){try{return JSON.stringify(c)}catch(u){return"[UnexpectedJSONParseError]: "+u.message}}})(M,M.exports);var pe=M.exports;const J=de(pe),ge=J("electron-trpc:main:handleIPCMessage");async function Ee({router:r,createContext:t,internalId:e,message:i,event:a,subscriptions:l}){if(i.method==="subscription.stop"){const d=l.get(e);if(!d)return;d.unsubscribe(),l.delete(e);return}const{type:p,input:g,path:c,id:u}=i.operation,n=g?r._def._config.transformer.input.deserialize(g):void 0,o=await(t==null?void 0:t({event:a}))??{},s=d=>{a.sender.isDestroyed()||a.reply(w,ie(r._def._config,d))};try{const d=await ae({ctx:o,path:c,procedures:r._def.procedures,getRawInput:async()=>n,type:p});if(p!=="subscription"){s({id:u,result:{type:"data",data:d}});return}else if(!ue(d))throw new P({message:`Subscription ${c} did not return an observable`,code:"INTERNAL_SERVER_ERROR"});const E=d.subscribe({next(f){s({id:u,result:{type:"data",data:f}})},error(f){const C=$(f);s({id:u,error:H({config:r._def._config,error:C,type:p,path:c,input:n,ctx:o})})},complete(){s({id:u,result:{type:"stopped"}})}});ge("Creating subscription",e),l.set(e,E)}catch(d){const E=$(d);return s({id:u,error:H({config:r._def._config,error:E,type:p,path:c,input:n,ctx:o})})}}const m=J("electron-trpc:main:IPCHandler"),he=(r,t)=>{const e=t.method==="request"?t.operation.id:t.id;return`${r.sender.id}-${r.senderFrame.routingId}:${e}`};var b,R,T,L,A,K;class Fe{constructor({createContext:t,router:e,windows:i=[]}){y(this,T);y(this,A);y(this,b,[]);y(this,R,new Map);i.forEach(a=>this.attachWindow(a)),I.ipcMain.on(w,(a,l)=>{Ee({router:e,createContext:t,internalId:he(a,l),event:a,message:l,subscriptions:F(this,R)})})}attachWindow(t){F(this,b).includes(t)||(m("Attaching window",t.id),F(this,b).push(t),N(this,A,K).call(this,t))}detachWindow(t){m("Detaching window",t.id),k(this,b,F(this,b).filter(e=>e!==t)),N(this,T,L).call(this,{webContentsId:t.webContents.id})}}b=new WeakMap,R=new WeakMap,T=new WeakSet,L=function({webContentsId:t,frameRoutingId:e}){for(const[i,a]of F(this,R).entries())i.startsWith(`${t}-${e??""}`)&&(m("Closing subscription",i),a.unsubscribe(),F(this,R).delete(i))},A=new WeakSet,K=function(t){t.webContents.on("did-start-navigation",({frame:e})=>{m("Handling webContents `did-start-navigation` event",`webContentsId: ${t.webContents.id}`,`frameRoutingId: ${e.routingId}`),N(this,T,L).call(this,{webContentsId:t.webContents.id,frameRoutingId:e.routingId})}),t.webContents.on("destroyed",()=>{m("Handling webContents `destroyed` event"),this.detachWindow(t)})};const be=({createContext:r,router:t,windows:e=[]})=>new Fe({createContext:r,router:t,windows:e}),Re=()=>{const r={sendMessage:t=>I.ipcRenderer.send(w,t),onMessage:t=>I.ipcRenderer.on(w,(e,i)=>t(i))};I.contextBridge.exposeInMainWorld("electronTRPC",r)};exports.ELECTRON_TRPC_CHANNEL=w;exports.createIPCHandler=be;exports.exposeElectronTRPC=Re;
+diff --git a/dist/main.d.ts b/dist/main.d.ts
+index f164ec1804d7d06446c844b10f707f257f79ec3c..ffdc871626ff6051f48a0ba3764d68a017df4ed3 100644
+--- a/dist/main.d.ts
++++ b/dist/main.d.ts
+@@ -1,24 +1,24 @@
+ // Generated by dts-bundle-generator v9.5.1
+ 
+-import { AnyRouter, inferRouterContext } from '@trpc/server';
++import { AnyTRPCRouter, inferRouterContext } from '@trpc/server';
+ import { BrowserWindow, IpcMainInvokeEvent } from 'electron';
+ 
+ export declare const ELECTRON_TRPC_CHANNEL = "electron-trpc";
+ export interface CreateContextOptions {
+ 	event: IpcMainInvokeEvent;
+ }
+-export type Awaitable<T> = T | Promise<T>;
+-declare class IPCHandler<TRouter extends AnyRouter> {
++export type MaybePromise<TType> = Promise<TType> | TType;
++declare class IPCHandler<TRouter extends AnyTRPCRouter> {
+ 	#private;
+ 	constructor({ createContext, router, windows, }: {
+-		createContext?: (opts: CreateContextOptions) => Awaitable<inferRouterContext<TRouter>>;
++		createContext?: (opts: CreateContextOptions) => MaybePromise<inferRouterContext<TRouter>>;
+ 		router: TRouter;
+ 		windows?: BrowserWindow[];
+ 	});
+ 	attachWindow(win: BrowserWindow): void;
+ 	detachWindow(win: BrowserWindow): void;
+ }
+-export declare const createIPCHandler: <TRouter extends AnyRouter>({ createContext, router, windows, }: {
++export declare const createIPCHandler: <TRouter extends AnyTRPCRouter>({ createContext, router, windows, }: {
+ 	createContext?: (opts: CreateContextOptions) => Promise<inferRouterContext<TRouter>>;
+ 	router: TRouter;
+ 	windows?: Electron.BrowserWindow[];
+diff --git a/dist/main.mjs b/dist/main.mjs
+index 07971dbce29952b2a466b683c00b5233f27cf081..5cb96411f2c82f6abf8d1617fc201ecd40caed52 100644
+--- a/dist/main.mjs
++++ b/dist/main.mjs
+@@ -1,52 +1,53 @@
+-var S = (n, r, e) => {
+-  if (!r.has(n))
++var S = (r, t, e) => {
++  if (!t.has(r))
+     throw TypeError("Cannot " + e);
+ };
+-var F = (n, r, e) => (S(n, r, "read from private field"), e ? e.call(n) : r.get(n)), m = (n, r, e) => {
+-  if (r.has(n))
++var F = (r, t, e) => (S(r, t, "read from private field"), e ? e.call(r) : t.get(r)), m = (r, t, e) => {
++  if (t.has(r))
+     throw TypeError("Cannot add the same private member more than once");
+-  r instanceof WeakSet ? r.add(n) : r.set(n, e);
+-}, L = (n, r, e, i) => (S(n, r, "write to private field"), i ? i.call(n, e) : r.set(n, e), e);
+-var v = (n, r, e) => (S(n, r, "access private method"), e);
+-import { ipcMain as ee, contextBridge as re, ipcRenderer as U } from "electron";
+-const T = "electron-trpc";
+-function ne(n) {
+-  return !!n && !Array.isArray(n) && typeof n == "object";
++  t instanceof WeakSet ? t.add(r) : t.set(r, e);
++}, L = (r, t, e, i) => (S(r, t, "write to private field"), i ? i.call(r, e) : t.set(r, e), e);
++var O = (r, t, e) => (S(r, t, "access private method"), e);
++import { ipcMain as X, contextBridge as ee, ipcRenderer as k } from "electron";
++const N = "electron-trpc";
++function re(r) {
++  return !!r && !Array.isArray(r) && typeof r == "object";
+ }
+ class te extends Error {
+ }
+-function oe(n) {
+-  if (n instanceof Error)
+-    return n;
+-  const r = typeof n;
+-  if (!(r === "undefined" || r === "function" || n === null)) {
+-    if (r !== "object")
+-      return new Error(String(n));
+-    if (ne(n)) {
++function ne(r) {
++  if (r instanceof Error)
++    return r;
++  const t = typeof r;
++  if (!(t === "undefined" || t === "function" || r === null)) {
++    if (t !== "object")
++      return new Error(String(r));
++    if (re(r)) {
+       const e = new te();
+-      for (const i in n)
+-        e[i] = n[i];
++      for (const i in r)
++        e[i] = r[i];
+       return e;
+     }
+   }
+ }
++function $(r) {
++  if (r instanceof I || r instanceof Error && r.name === "TRPCError")
++    return r;
++  const t = new I({
++    code: "INTERNAL_SERVER_ERROR",
++    cause: r
++  });
++  return r instanceof Error && r.stack && (t.stack = r.stack), t;
++}
+ class I extends Error {
+-  constructor(r) {
+-    const e = oe(r.cause), i = r.message ?? (e == null ? void 0 : e.message) ?? r.code;
++  constructor(t) {
++    const e = ne(t.cause), i = t.message ?? (e == null ? void 0 : e.message) ?? t.code;
+     super(i, {
+       cause: e
+-    }), this.code = r.code, this.name = "TRPCError", this.cause || (this.cause = e);
++    }), this.code = t.code, this.name = "TRPCError", this.cause || (this.cause = e);
+   }
+ }
+-function Y(n) {
+-  const r = /* @__PURE__ */ Object.create(null);
+-  for (const e in n) {
+-    const i = n[e];
+-    r[i] = e;
+-  }
+-  return r;
+-}
+-const K = {
++const oe = {
+   /**
+   * Invalid JSON was received by the server.
+   * An error occurred on the server while parsing the JSON text.
+@@ -67,81 +68,106 @@ const K = {
+   TIMEOUT: -32008,
+   CONFLICT: -32009,
+   PRECONDITION_FAILED: -32012,
++  UNSUPPORTED_MEDIA_TYPE: -32015,
+   PAYLOAD_TOO_LARGE: -32013,
+   UNPROCESSABLE_CONTENT: -32022,
+   TOO_MANY_REQUESTS: -32029,
+   CLIENT_CLOSED_REQUEST: -32099
++}, se = {
++  PARSE_ERROR: 400,
++  BAD_REQUEST: 400,
++  UNAUTHORIZED: 401,
++  NOT_FOUND: 404,
++  FORBIDDEN: 403,
++  METHOD_NOT_SUPPORTED: 405,
++  TIMEOUT: 408,
++  CONFLICT: 409,
++  PRECONDITION_FAILED: 412,
++  PAYLOAD_TOO_LARGE: 413,
++  UNSUPPORTED_MEDIA_TYPE: 415,
++  UNPROCESSABLE_CONTENT: 422,
++  TOO_MANY_REQUESTS: 429,
++  CLIENT_CLOSED_REQUEST: 499,
++  INTERNAL_SERVER_ERROR: 500,
++  NOT_IMPLEMENTED: 501
+ };
+-Y(K);
+-Y(K);
+-function se(n) {
+-  var a;
+-  const { type: r, path: e } = n;
+-  if (!(e in n.procedures) || !((a = n.procedures[e]) != null && a._def[r]))
+-    throw new I({
+-      code: "NOT_FOUND",
+-      message: `No "${r}"-procedure on path "${e}"`
+-    });
+-  const i = n.procedures[e];
+-  return i(n);
++function ie(r) {
++  return se[r] ?? 500;
+ }
+-var W, z, x, B, V, J;
+-typeof window > "u" || "Deno" in window || ((z = (W = globalThis.process) == null ? void 0 : W.env) == null ? void 0 : z.NODE_ENV) === "test" || (B = (x = globalThis.process) == null ? void 0 : x.env) != null && B.JEST_WORKER_ID || (J = (V = globalThis.process) == null ? void 0 : V.env) != null && J.VITEST_WORKER_ID;
+-function ie(n) {
+-  return typeof n == "object" && n !== null && "subscribe" in n;
++function ce(r) {
++  return ie(r.code);
+ }
+-function $(n, r) {
+-  return "error" in r ? {
+-    ...r,
+-    error: n.transformer.output.serialize(r.error)
+-  } : "data" in r.result ? {
++function j(r) {
++  const { path: t, error: e, config: i } = r, { code: a } = r.error, f = {
++    message: e.message,
++    code: oe[a],
++    data: {
++      code: a,
++      httpStatus: ce(e)
++    }
++  };
++  return i.isDev && typeof r.error.stack == "string" && (f.data.stack = r.error.stack), typeof t == "string" && (f.data.path = t), i.errorFormatter({
+     ...r,
++    shape: f
++  });
++}
++function H(r, t) {
++  return "error" in t ? {
++    ...t,
++    error: r.transformer.output.serialize(t.error)
++  } : "data" in t.result ? {
++    ...t,
+     result: {
+-      ...r.result,
+-      data: n.transformer.output.serialize(r.result.data)
++      ...t.result,
++      data: r.transformer.output.serialize(t.result.data)
+     }
+-  } : r;
++  } : t;
+ }
+-function ce(n, r) {
+-  return Array.isArray(r) ? r.map((e) => $(n, e)) : $(n, r);
++function ae(r, t) {
++  return Array.isArray(t) ? t.map((e) => H(r, e)) : H(r, t);
+ }
+-function j(n) {
+-  if (n instanceof I)
+-    return n;
+-  const r = ae(n), e = new I({
+-    code: "INTERNAL_SERVER_ERROR",
+-    cause: r,
+-    message: r.message
+-  });
+-  return e.stack = r.stack, e;
++function ue(r) {
++  return typeof r == "function";
++}
++function de(r) {
++  const { type: t, path: e } = r, i = r.procedures[e];
++  if (!i || !ue(i) || i._def.type !== t && !r.allowMethodOverride)
++    throw new I({
++      code: "NOT_FOUND",
++      message: `No "${t}"-procedure on path "${e}"`
++    });
++  return i(r);
+ }
+-function ae(n) {
+-  return n instanceof Error ? n : typeof n == "string" ? new Error(n) : new Error("Unknown error");
++var W, z, Y, x, Q, V;
++typeof window > "u" || "Deno" in window || // eslint-disable-next-line @typescript-eslint/dot-notation
++((z = (W = globalThis.process) == null ? void 0 : W.env) == null ? void 0 : z.NODE_ENV) === "test" || (x = (Y = globalThis.process) == null ? void 0 : Y.env) != null && x.JEST_WORKER_ID || (V = (Q = globalThis.process) == null ? void 0 : Q.env) != null && V.VITEST_WORKER_ID;
++function fe(r) {
++  return typeof r == "object" && r !== null && "subscribe" in r;
+ }
+-function ue(n) {
+-  return n && n.__esModule && Object.prototype.hasOwnProperty.call(n, "default") ? n.default : n;
++function le(r) {
++  return r && r.__esModule && Object.prototype.hasOwnProperty.call(r, "default") ? r.default : r;
+ }
+-var D = { exports: {} }, P, H;
+-function de() {
+-  if (H)
+-    return P;
+-  H = 1;
+-  var n = 1e3, r = n * 60, e = r * 60, i = e * 24, a = i * 7, C = i * 365.25;
+-  P = function(t, o) {
++var v = { exports: {} }, D, B;
++function Ce() {
++  if (B)
++    return D;
++  B = 1;
++  var r = 1e3, t = r * 60, e = t * 60, i = e * 24, a = i * 7, f = i * 365.25;
++  D = function(n, o) {
+     o = o || {};
+-    var s = typeof t;
+-    if (s === "string" && t.length > 0)
+-      return p(t);
+-    if (s === "number" && isFinite(t))
+-      return o.long ? c(t) : g(t);
++    var s = typeof n;
++    if (s === "string" && n.length > 0)
++      return p(n);
++    if (s === "number" && isFinite(n))
++      return o.long ? c(n) : g(n);
+     throw new Error(
+-      "val is not a non-empty string or a valid number. val=" + JSON.stringify(t)
++      "val is not a non-empty string or a valid number. val=" + JSON.stringify(n)
+     );
+   };
+-  function p(t) {
+-    if (t = String(t), !(t.length > 100)) {
++  function p(n) {
++    if (n = String(n), !(n.length > 100)) {
+       var o = /^(-?(?:\d+)?\.?\d+) *(milliseconds?|msecs?|ms|seconds?|secs?|s|minutes?|mins?|m|hours?|hrs?|h|days?|d|weeks?|w|years?|yrs?|y)?$/i.exec(
+-        t
++        n
+       );
+       if (o) {
+         var s = parseFloat(o[1]), d = (o[2] || "ms").toLowerCase();
+@@ -151,7 +177,7 @@ function de() {
+           case "yrs":
+           case "yr":
+           case "y":
+-            return s * C;
++            return s * f;
+           case "weeks":
+           case "week":
+           case "w":
+@@ -171,13 +197,13 @@ function de() {
+           case "mins":
+           case "min":
+           case "m":
+-            return s * r;
++            return s * t;
+           case "seconds":
+           case "second":
+           case "secs":
+           case "sec":
+           case "s":
+-            return s * n;
++            return s * r;
+           case "milliseconds":
+           case "millisecond":
+           case "msecs":
+@@ -190,109 +216,109 @@ function de() {
+       }
+     }
+   }
+-  function g(t) {
+-    var o = Math.abs(t);
+-    return o >= i ? Math.round(t / i) + "d" : o >= e ? Math.round(t / e) + "h" : o >= r ? Math.round(t / r) + "m" : o >= n ? Math.round(t / n) + "s" : t + "ms";
++  function g(n) {
++    var o = Math.abs(n);
++    return o >= i ? Math.round(n / i) + "d" : o >= e ? Math.round(n / e) + "h" : o >= t ? Math.round(n / t) + "m" : o >= r ? Math.round(n / r) + "s" : n + "ms";
+   }
+-  function c(t) {
+-    var o = Math.abs(t);
+-    return o >= i ? u(t, o, i, "day") : o >= e ? u(t, o, e, "hour") : o >= r ? u(t, o, r, "minute") : o >= n ? u(t, o, n, "second") : t + " ms";
++  function c(n) {
++    var o = Math.abs(n);
++    return o >= i ? u(n, o, i, "day") : o >= e ? u(n, o, e, "hour") : o >= t ? u(n, o, t, "minute") : o >= r ? u(n, o, r, "second") : n + " ms";
+   }
+-  function u(t, o, s, d) {
+-    var h = o >= s * 1.5;
+-    return Math.round(t / s) + " " + d + (h ? "s" : "");
++  function u(n, o, s, d) {
++    var E = o >= s * 1.5;
++    return Math.round(n / s) + " " + d + (E ? "s" : "");
+   }
+-  return P;
++  return D;
+ }
+-function le(n) {
+-  e.debug = e, e.default = e, e.coerce = c, e.disable = C, e.enable = a, e.enabled = p, e.humanize = de(), e.destroy = u, Object.keys(n).forEach((t) => {
+-    e[t] = n[t];
++function pe(r) {
++  e.debug = e, e.default = e, e.coerce = c, e.disable = f, e.enable = a, e.enabled = p, e.humanize = Ce(), e.destroy = u, Object.keys(r).forEach((n) => {
++    e[n] = r[n];
+   }), e.names = [], e.skips = [], e.formatters = {};
+-  function r(t) {
++  function t(n) {
+     let o = 0;
+-    for (let s = 0; s < t.length; s++)
+-      o = (o << 5) - o + t.charCodeAt(s), o |= 0;
++    for (let s = 0; s < n.length; s++)
++      o = (o << 5) - o + n.charCodeAt(s), o |= 0;
+     return e.colors[Math.abs(o) % e.colors.length];
+   }
+-  e.selectColor = r;
+-  function e(t) {
+-    let o, s = null, d, h;
+-    function l(...f) {
++  e.selectColor = t;
++  function e(n) {
++    let o, s = null, d, E;
++    function l(...C) {
+       if (!l.enabled)
+         return;
+-      const b = l, O = Number(/* @__PURE__ */ new Date()), G = O - (o || O);
+-      b.diff = G, b.prev = o, b.curr = O, o = O, f[0] = e.coerce(f[0]), typeof f[0] != "string" && f.unshift("%O");
++      const h = l, T = Number(/* @__PURE__ */ new Date()), Z = T - (o || T);
++      h.diff = Z, h.prev = o, h.curr = T, o = T, C[0] = e.coerce(C[0]), typeof C[0] != "string" && C.unshift("%O");
+       let _ = 0;
+-      f[0] = f[0].replace(/%([a-zA-Z%])/g, (A, q) => {
+-        if (A === "%%")
++      C[0] = C[0].replace(/%([a-zA-Z%])/g, (P, G) => {
++        if (P === "%%")
+           return "%";
+         _++;
+-        const k = e.formatters[q];
+-        if (typeof k == "function") {
+-          const X = f[_];
+-          A = k.call(b, X), f.splice(_, 1), _--;
++        const U = e.formatters[G];
++        if (typeof U == "function") {
++          const q = C[_];
++          P = U.call(h, q), C.splice(_, 1), _--;
+         }
+-        return A;
+-      }), e.formatArgs.call(b, f), (b.log || e.log).apply(b, f);
++        return P;
++      }), e.formatArgs.call(h, C), (h.log || e.log).apply(h, C);
+     }
+-    return l.namespace = t, l.useColors = e.useColors(), l.color = e.selectColor(t), l.extend = i, l.destroy = e.destroy, Object.defineProperty(l, "enabled", {
++    return l.namespace = n, l.useColors = e.useColors(), l.color = e.selectColor(n), l.extend = i, l.destroy = e.destroy, Object.defineProperty(l, "enabled", {
+       enumerable: !0,
+       configurable: !1,
+-      get: () => s !== null ? s : (d !== e.namespaces && (d = e.namespaces, h = e.enabled(t)), h),
+-      set: (f) => {
+-        s = f;
++      get: () => s !== null ? s : (d !== e.namespaces && (d = e.namespaces, E = e.enabled(n)), E),
++      set: (C) => {
++        s = C;
+       }
+     }), typeof e.init == "function" && e.init(l), l;
+   }
+-  function i(t, o) {
+-    const s = e(this.namespace + (typeof o > "u" ? ":" : o) + t);
++  function i(n, o) {
++    const s = e(this.namespace + (typeof o > "u" ? ":" : o) + n);
+     return s.log = this.log, s;
+   }
+-  function a(t) {
+-    e.save(t), e.namespaces = t, e.names = [], e.skips = [];
++  function a(n) {
++    e.save(n), e.namespaces = n, e.names = [], e.skips = [];
+     let o;
+-    const s = (typeof t == "string" ? t : "").split(/[\s,]+/), d = s.length;
++    const s = (typeof n == "string" ? n : "").split(/[\s,]+/), d = s.length;
+     for (o = 0; o < d; o++)
+-      s[o] && (t = s[o].replace(/\*/g, ".*?"), t[0] === "-" ? e.skips.push(new RegExp("^" + t.slice(1) + "$")) : e.names.push(new RegExp("^" + t + "$")));
++      s[o] && (n = s[o].replace(/\*/g, ".*?"), n[0] === "-" ? e.skips.push(new RegExp("^" + n.slice(1) + "$")) : e.names.push(new RegExp("^" + n + "$")));
+   }
+-  function C() {
+-    const t = [
++  function f() {
++    const n = [
+       ...e.names.map(g),
+       ...e.skips.map(g).map((o) => "-" + o)
+     ].join(",");
+-    return e.enable(""), t;
++    return e.enable(""), n;
+   }
+-  function p(t) {
+-    if (t[t.length - 1] === "*")
++  function p(n) {
++    if (n[n.length - 1] === "*")
+       return !0;
+     let o, s;
+     for (o = 0, s = e.skips.length; o < s; o++)
+-      if (e.skips[o].test(t))
++      if (e.skips[o].test(n))
+         return !1;
+     for (o = 0, s = e.names.length; o < s; o++)
+-      if (e.names[o].test(t))
++      if (e.names[o].test(n))
+         return !0;
+     return !1;
+   }
+-  function g(t) {
+-    return t.toString().substring(2, t.toString().length - 2).replace(/\.\*\?$/, "*");
++  function g(n) {
++    return n.toString().substring(2, n.toString().length - 2).replace(/\.\*\?$/, "*");
+   }
+-  function c(t) {
+-    return t instanceof Error ? t.stack || t.message : t;
++  function c(n) {
++    return n instanceof Error ? n.stack || n.message : n;
+   }
+   function u() {
+     console.warn("Instance method `debug.destroy()` is deprecated and no longer does anything. It will be removed in the next major version of `debug`.");
+   }
+   return e.enable(e.load()), e;
+ }
+-var fe = le;
+-(function(n, r) {
+-  r.formatArgs = i, r.save = a, r.load = C, r.useColors = e, r.storage = p(), r.destroy = /* @__PURE__ */ (() => {
++var ge = pe;
++(function(r, t) {
++  t.formatArgs = i, t.save = a, t.load = f, t.useColors = e, t.storage = p(), t.destroy = /* @__PURE__ */ (() => {
+     let c = !1;
+     return () => {
+       c || (c = !0, console.warn("Instance method `debug.destroy()` is deprecated and no longer does anything. It will be removed in the next major version of `debug`."));
+     };
+-  })(), r.colors = [
++  })(), t.colors = [
+     "#0000CC",
+     "#0000FF",
+     "#0033CC",
+@@ -378,27 +404,27 @@ var fe = le;
+     typeof navigator < "u" && navigator.userAgent && navigator.userAgent.toLowerCase().match(/applewebkit\/(\d+)/);
+   }
+   function i(c) {
+-    if (c[0] = (this.useColors ? "%c" : "") + this.namespace + (this.useColors ? " %c" : " ") + c[0] + (this.useColors ? "%c " : " ") + "+" + n.exports.humanize(this.diff), !this.useColors)
++    if (c[0] = (this.useColors ? "%c" : "") + this.namespace + (this.useColors ? " %c" : " ") + c[0] + (this.useColors ? "%c " : " ") + "+" + r.exports.humanize(this.diff), !this.useColors)
+       return;
+     const u = "color: " + this.color;
+     c.splice(1, 0, u, "color: inherit");
+-    let t = 0, o = 0;
++    let n = 0, o = 0;
+     c[0].replace(/%[a-zA-Z%]/g, (s) => {
+-      s !== "%%" && (t++, s === "%c" && (o = t));
++      s !== "%%" && (n++, s === "%c" && (o = n));
+     }), c.splice(o, 0, u);
+   }
+-  r.log = console.debug || console.log || (() => {
++  t.log = console.debug || console.log || (() => {
+   });
+   function a(c) {
+     try {
+-      c ? r.storage.setItem("debug", c) : r.storage.removeItem("debug");
++      c ? t.storage.setItem("debug", c) : t.storage.removeItem("debug");
+     } catch {
+     }
+   }
+-  function C() {
++  function f() {
+     let c;
+     try {
+-      c = r.storage.getItem("debug");
++      c = t.storage.getItem("debug");
+     } catch {
+     }
+     return !c && typeof process < "u" && "env" in process && (c = process.env.DEBUG), c;
+@@ -409,8 +435,8 @@ var fe = le;
+     } catch {
+     }
+   }
+-  n.exports = fe(r);
+-  const { formatters: g } = n.exports;
++  r.exports = ge(t);
++  const { formatters: g } = r.exports;
+   g.j = function(c) {
+     try {
+       return JSON.stringify(c);
+@@ -418,33 +444,33 @@ var fe = le;
+       return "[UnexpectedJSONParseError]: " + u.message;
+     }
+   };
+-})(D, D.exports);
+-var Ce = D.exports;
+-const Q = /* @__PURE__ */ ue(Ce), pe = Q("electron-trpc:main:handleIPCMessage");
+-async function ge({
+-  router: n,
+-  createContext: r,
++})(v, v.exports);
++var Ee = v.exports;
++const J = /* @__PURE__ */ le(Ee), he = J("electron-trpc:main:handleIPCMessage");
++async function Fe({
++  router: r,
++  createContext: t,
+   internalId: e,
+   message: i,
+   event: a,
+-  subscriptions: C
++  subscriptions: f
+ }) {
+   if (i.method === "subscription.stop") {
+-    const d = C.get(e);
++    const d = f.get(e);
+     if (!d)
+       return;
+-    d.unsubscribe(), C.delete(e);
++    d.unsubscribe(), f.delete(e);
+     return;
+   }
+-  const { type: p, input: g, path: c, id: u } = i.operation, t = g ? n._def._config.transformer.input.deserialize(g) : void 0, o = await (r == null ? void 0 : r({ event: a })) ?? {}, s = (d) => {
+-    a.sender.isDestroyed() || a.reply(T, ce(n._def._config, d));
++  const { type: p, input: g, path: c, id: u } = i.operation, n = g ? r._def._config.transformer.input.deserialize(g) : void 0, o = await (t == null ? void 0 : t({ event: a })) ?? {}, s = (d) => {
++    a.sender.isDestroyed() || a.reply(N, ae(r._def._config, d));
+   };
+   try {
+-    const d = await se({
++    const d = await de({
+       ctx: o,
+       path: c,
+-      procedures: n._def.procedures,
+-      rawInput: t,
++      procedures: r._def.procedures,
++      getRawInput: async () => n,
+       type: p
+     });
+     if (p !== "subscription") {
+@@ -456,12 +482,12 @@ async function ge({
+         }
+       });
+       return;
+-    } else if (!ie(d))
++    } else if (!fe(d))
+       throw new I({
+         message: `Subscription ${c} did not return an observable`,
+         code: "INTERNAL_SERVER_ERROR"
+       });
+-    const h = d.subscribe({
++    const E = d.subscribe({
+       next(l) {
+         s({
+           id: u,
+@@ -472,14 +498,15 @@ async function ge({
+         });
+       },
+       error(l) {
+-        const f = j(l);
++        const C = $(l);
+         s({
+           id: u,
+-          error: n.getErrorShape({
+-            error: f,
++          error: j({
++            config: r._def._config,
++            error: C,
+             type: p,
+             path: c,
+-            input: t,
++            input: n,
+             ctx: o
+           })
+         });
+@@ -493,87 +520,88 @@ async function ge({
+         });
+       }
+     });
+-    pe("Creating subscription", e), C.set(e, h);
++    he("Creating subscription", e), f.set(e, E);
+   } catch (d) {
+-    const h = j(d);
++    const E = $(d);
+     return s({
+       id: u,
+-      error: n.getErrorShape({
+-        error: h,
++      error: j({
++        config: r._def._config,
++        error: E,
+         type: p,
+         path: c,
+-        input: t,
++        input: n,
+         ctx: o
+       })
+     });
+   }
+ }
+-const y = Q("electron-trpc:main:IPCHandler"), he = (n, r) => {
+-  const e = r.method === "request" ? r.operation.id : r.id;
+-  return `${n.sender.id}-${n.senderFrame.routingId}:${e}`;
++const y = J("electron-trpc:main:IPCHandler"), be = (r, t) => {
++  const e = t.method === "request" ? t.operation.id : t.id;
++  return `${r.sender.id}-${r.senderFrame.routingId}:${e}`;
+ };
+-var w, E, R, M, N, Z;
+-class be {
++var b, R, w, M, A, K;
++class Re {
+   constructor({
+-    createContext: r,
++    createContext: t,
+     router: e,
+     windows: i = []
+   }) {
+-    m(this, R);
+-    m(this, N);
+-    m(this, w, []);
+-    m(this, E, /* @__PURE__ */ new Map());
+-    i.forEach((a) => this.attachWindow(a)), ee.on(T, (a, C) => {
+-      ge({
++    m(this, w);
++    m(this, A);
++    m(this, b, []);
++    m(this, R, /* @__PURE__ */ new Map());
++    i.forEach((a) => this.attachWindow(a)), X.on(N, (a, f) => {
++      Fe({
+         router: e,
+-        createContext: r,
+-        internalId: he(a, C),
++        createContext: t,
++        internalId: be(a, f),
+         event: a,
+-        message: C,
+-        subscriptions: F(this, E)
++        message: f,
++        subscriptions: F(this, R)
+       });
+     });
+   }
+-  attachWindow(r) {
+-    F(this, w).includes(r) || (y("Attaching window", r.id), F(this, w).push(r), v(this, N, Z).call(this, r));
++  attachWindow(t) {
++    F(this, b).includes(t) || (y("Attaching window", t.id), F(this, b).push(t), O(this, A, K).call(this, t));
+   }
+-  detachWindow(r) {
+-    y("Detaching window", r.id), L(this, w, F(this, w).filter((e) => e !== r)), v(this, R, M).call(this, { webContentsId: r.webContents.id });
++  detachWindow(t) {
++    y("Detaching window", t.id), L(this, b, F(this, b).filter((e) => e !== t)), O(this, w, M).call(this, { webContentsId: t.webContents.id });
+   }
+ }
+-w = new WeakMap(), E = new WeakMap(), R = new WeakSet(), M = function({
+-  webContentsId: r,
++b = new WeakMap(), R = new WeakMap(), w = new WeakSet(), M = function({
++  webContentsId: t,
+   frameRoutingId: e
+ }) {
+-  for (const [i, a] of F(this, E).entries())
+-    i.startsWith(`${r}-${e ?? ""}`) && (y("Closing subscription", i), a.unsubscribe(), F(this, E).delete(i));
+-}, N = new WeakSet(), Z = function(r) {
+-  r.webContents.on("did-start-navigation", ({ frame: e }) => {
++  for (const [i, a] of F(this, R).entries())
++    i.startsWith(`${t}-${e ?? ""}`) && (y("Closing subscription", i), a.unsubscribe(), F(this, R).delete(i));
++}, A = new WeakSet(), K = function(t) {
++  t.webContents.on("did-start-navigation", ({ frame: e }) => {
+     y(
+       "Handling webContents `did-start-navigation` event",
+-      `webContentsId: ${r.webContents.id}`,
++      `webContentsId: ${t.webContents.id}`,
+       `frameRoutingId: ${e.routingId}`
+-    ), v(this, R, M).call(this, {
+-      webContentsId: r.webContents.id,
++    ), O(this, w, M).call(this, {
++      webContentsId: t.webContents.id,
+       frameRoutingId: e.routingId
+     });
+-  }), r.webContents.on("destroyed", () => {
+-    y("Handling webContents `destroyed` event"), this.detachWindow(r);
++  }), t.webContents.on("destroyed", () => {
++    y("Handling webContents `destroyed` event"), this.detachWindow(t);
+   });
+ };
+-const me = ({
+-  createContext: n,
+-  router: r,
++const Te = ({
++  createContext: r,
++  router: t,
+   windows: e = []
+-}) => new be({ createContext: n, router: r, windows: e }), ye = () => {
+-  const n = {
+-    sendMessage: (r) => U.send(T, r),
+-    onMessage: (r) => U.on(T, (e, i) => r(i))
++}) => new Re({ createContext: r, router: t, windows: e }), _e = () => {
++  const r = {
++    sendMessage: (t) => k.send(N, t),
++    onMessage: (t) => k.on(N, (e, i) => t(i))
+   };
+-  re.exposeInMainWorld("electronTRPC", n);
++  ee.exposeInMainWorld("electronTRPC", r);
+ };
+ export {
+-  T as ELECTRON_TRPC_CHANNEL,
+-  me as createIPCHandler,
+-  ye as exposeElectronTRPC
++  N as ELECTRON_TRPC_CHANNEL,
++  Te as createIPCHandler,
++  _e as exposeElectronTRPC
+ };
+diff --git a/dist/renderer.cjs b/dist/renderer.cjs
+index 57398b989605f90fc418095f2d30ed9c459b3181..ef5aa7b3163bb1a3e503fef2fb992903815ec4e3 100644
+--- a/dist/renderer.cjs
++++ b/dist/renderer.cjs
+@@ -1 +1 @@
+-"use strict";var _=(r,n,e)=>{if(!n.has(r))throw TypeError("Cannot "+e)};var m=(r,n,e)=>(_(r,n,"read from private field"),e?e.call(r):n.get(r)),O=(r,n,e)=>{if(n.has(r))throw TypeError("Cannot add the same private member more than once");n instanceof WeakSet?n.add(r):n.set(r,e)};var S=(r,n,e)=>(_(r,n,"access private method"),e);Object.defineProperty(exports,Symbol.toStringTag,{value:"Module"});const q="electron-trpc";function z(r){return r}function $(r){return r.length===0?z:r.length===1?r[0]:function(e){return r.reduce((s,c)=>c(s),e)}}function B(r){const n={subscribe(e){let s=null,c=!1,a=!1,f=!1;function C(){if(s===null){f=!0;return}a||(a=!0,typeof s=="function"?s():s&&s.unsubscribe())}return s=r({next(u){var l;c||(l=e.next)==null||l.call(e,u)},error(u){var l;c||(c=!0,(l=e.error)==null||l.call(e,u),C())},complete(){var u;c||(c=!0,(u=e.complete)==null||u.call(e),C())}}),f&&C(),{unsubscribe:C}},pipe(...e){return $(e)(n)}};return n}function I(r){const n=Object.create(null);for(const e in r){const s=r[e];n[s]=e}return n}const D={PARSE_ERROR:-32700,BAD_REQUEST:-32600,INTERNAL_SERVER_ERROR:-32603,NOT_IMPLEMENTED:-32603,UNAUTHORIZED:-32001,FORBIDDEN:-32003,NOT_FOUND:-32004,METHOD_NOT_SUPPORTED:-32005,TIMEOUT:-32008,CONFLICT:-32009,PRECONDITION_FAILED:-32012,PAYLOAD_TOO_LARGE:-32013,UNPROCESSABLE_CONTENT:-32022,TOO_MANY_REQUESTS:-32029,CLIENT_CLOSED_REQUEST:-32099};I(D);I(D);function H(r){return!!r&&!Array.isArray(r)&&typeof r=="object"}class Y extends Error{}function J(r){if(r instanceof Error)return r;const n=typeof r;if(!(n==="undefined"||n==="function"||r===null)){if(n!=="object")return new Error(String(r));if(H(r)){const e=new Y;for(const s in r)e[s]=r[s];return e}}}function L(r){return!!r&&!Array.isArray(r)&&typeof r=="object"}function Q(r){return r instanceof y||r instanceof Error&&r.name==="TRPCClientError"}function Z(r){return L(r)&&L(r.error)&&typeof r.error.code=="number"&&typeof r.error.message=="string"}class y extends Error{static from(n,e={}){const s=n;return Q(s)?(e.meta&&(s.meta={...s.meta,...e.meta}),s):Z(s)?new y(s.error.message,{...e,result:s}):s instanceof Error?new y(s.message,{...e,cause:J(s)}):new y("Unknown error",{...e,cause:s})}constructor(n,e){var c,a;const s=e==null?void 0:e.cause;super(n,{cause:s}),this.meta=e==null?void 0:e.meta,this.cause=s,this.shape=(c=e==null?void 0:e.result)==null?void 0:c.error,this.data=(a=e==null?void 0:e.result)==null?void 0:a.error.data,this.name="TRPCClientError",Object.setPrototypeOf(this,y.prototype)}}function G(r,n){if("error"in r){const s=n.transformer.deserialize(r.error);return{ok:!1,error:{...r,error:s}}}return{ok:!0,result:{...r.result,...(!r.result.type||r.result.type==="data")&&{type:"data",data:n.transformer.deserialize(r.result.data)}}}}function K(r){return r&&r.__esModule&&Object.prototype.hasOwnProperty.call(r,"default")?r.default:r}var k={exports:{}},N,M;function V(){if(M)return N;M=1;var r=1e3,n=r*60,e=n*60,s=e*24,c=s*7,a=s*365.25;N=function(t,o){o=o||{};var i=typeof t;if(i==="string"&&t.length>0)return f(t);if(i==="number"&&isFinite(t))return o.long?u(t):C(t);throw new Error("val is not a non-empty string or a valid number. val="+JSON.stringify(t))};function f(t){if(t=String(t),!(t.length>100)){var o=/^(-?(?:\d+)?\.?\d+) *(milliseconds?|msecs?|ms|seconds?|secs?|s|minutes?|mins?|m|hours?|hrs?|h|days?|d|weeks?|w|years?|yrs?|y)?$/i.exec(t);if(o){var i=parseFloat(o[1]),h=(o[2]||"ms").toLowerCase();switch(h){case"years":case"year":case"yrs":case"yr":case"y":return i*a;case"weeks":case"week":case"w":return i*c;case"days":case"day":case"d":return i*s;case"hours":case"hour":case"hrs":case"hr":case"h":return i*e;case"minutes":case"minute":case"mins":case"min":case"m":return i*n;case"seconds":case"second":case"secs":case"sec":case"s":return i*r;case"milliseconds":case"millisecond":case"msecs":case"msec":case"ms":return i;default:return}}}}function C(t){var o=Math.abs(t);return o>=s?Math.round(t/s)+"d":o>=e?Math.round(t/e)+"h":o>=n?Math.round(t/n)+"m":o>=r?Math.round(t/r)+"s":t+"ms"}function u(t){var o=Math.abs(t);return o>=s?l(t,o,s,"day"):o>=e?l(t,o,e,"hour"):o>=n?l(t,o,n,"minute"):o>=r?l(t,o,r,"second"):t+" ms"}function l(t,o,i,h){var w=o>=i*1.5;return Math.round(t/i)+" "+h+(w?"s":"")}return N}function W(r){e.debug=e,e.default=e,e.coerce=u,e.disable=a,e.enable=c,e.enabled=f,e.humanize=V(),e.destroy=l,Object.keys(r).forEach(t=>{e[t]=r[t]}),e.names=[],e.skips=[],e.formatters={};function n(t){let o=0;for(let i=0;i<t.length;i++)o=(o<<5)-o+t.charCodeAt(i),o|=0;return e.colors[Math.abs(o)%e.colors.length]}e.selectColor=n;function e(t){let o,i=null,h,w;function g(...d){if(!g.enabled)return;const F=g,b=Number(new Date),j=b-(o||b);F.diff=j,F.prev=o,F.curr=b,o=b,d[0]=e.coerce(d[0]),typeof d[0]!="string"&&d.unshift("%O");let R=0;d[0]=d[0].replace(/%([a-zA-Z%])/g,(A,U)=>{if(A==="%%")return"%";R++;const P=e.formatters[U];if(typeof P=="function"){const x=d[R];A=P.call(F,x),d.splice(R,1),R--}return A}),e.formatArgs.call(F,d),(F.log||e.log).apply(F,d)}return g.namespace=t,g.useColors=e.useColors(),g.color=e.selectColor(t),g.extend=s,g.destroy=e.destroy,Object.defineProperty(g,"enabled",{enumerable:!0,configurable:!1,get:()=>i!==null?i:(h!==e.namespaces&&(h=e.namespaces,w=e.enabled(t)),w),set:d=>{i=d}}),typeof e.init=="function"&&e.init(g),g}function s(t,o){const i=e(this.namespace+(typeof o>"u"?":":o)+t);return i.log=this.log,i}function c(t){e.save(t),e.namespaces=t,e.names=[],e.skips=[];let o;const i=(typeof t=="string"?t:"").split(/[\s,]+/),h=i.length;for(o=0;o<h;o++)i[o]&&(t=i[o].replace(/\*/g,".*?"),t[0]==="-"?e.skips.push(new RegExp("^"+t.slice(1)+"$")):e.names.push(new RegExp("^"+t+"$")))}function a(){const t=[...e.names.map(C),...e.skips.map(C).map(o=>"-"+o)].join(",");return e.enable(""),t}function f(t){if(t[t.length-1]==="*")return!0;let o,i;for(o=0,i=e.skips.length;o<i;o++)if(e.skips[o].test(t))return!1;for(o=0,i=e.names.length;o<i;o++)if(e.names[o].test(t))return!0;return!1}function C(t){return t.toString().substring(2,t.toString().length-2).replace(/\.\*\?$/,"*")}function u(t){return t instanceof Error?t.stack||t.message:t}function l(){console.warn("Instance method `debug.destroy()` is deprecated and no longer does anything. It will be removed in the next major version of `debug`.")}return e.enable(e.load()),e}var X=W;(function(r,n){n.formatArgs=s,n.save=c,n.load=a,n.useColors=e,n.storage=f(),n.destroy=(()=>{let u=!1;return()=>{u||(u=!0,console.warn("Instance method `debug.destroy()` is deprecated and no longer does anything. It will be removed in the next major version of `debug`."))}})(),n.colors=["#0000CC","#0000FF","#0033CC","#0033FF","#0066CC","#0066FF","#0099CC","#0099FF","#00CC00","#00CC33","#00CC66","#00CC99","#00CCCC","#00CCFF","#3300CC","#3300FF","#3333CC","#3333FF","#3366CC","#3366FF","#3399CC","#3399FF","#33CC00","#33CC33","#33CC66","#33CC99","#33CCCC","#33CCFF","#6600CC","#6600FF","#6633CC","#6633FF","#66CC00","#66CC33","#9900CC","#9900FF","#9933CC","#9933FF","#99CC00","#99CC33","#CC0000","#CC0033","#CC0066","#CC0099","#CC00CC","#CC00FF","#CC3300","#CC3333","#CC3366","#CC3399","#CC33CC","#CC33FF","#CC6600","#CC6633","#CC9900","#CC9933","#CCCC00","#CCCC33","#FF0000","#FF0033","#FF0066","#FF0099","#FF00CC","#FF00FF","#FF3300","#FF3333","#FF3366","#FF3399","#FF33CC","#FF33FF","#FF6600","#FF6633","#FF9900","#FF9933","#FFCC00","#FFCC33"];function e(){return typeof window<"u"&&window.process&&(window.process.type==="renderer"||window.process.__nwjs)?!0:typeof navigator<"u"&&navigator.userAgent&&navigator.userAgent.toLowerCase().match(/(edge|trident)\/(\d+)/)?!1:typeof document<"u"&&document.documentElement&&document.documentElement.style&&document.documentElement.style.WebkitAppearance||typeof window<"u"&&window.console&&(window.console.firebug||window.console.exception&&window.console.table)||typeof navigator<"u"&&navigator.userAgent&&navigator.userAgent.toLowerCase().match(/firefox\/(\d+)/)&&parseInt(RegExp.$1,10)>=31||typeof navigator<"u"&&navigator.userAgent&&navigator.userAgent.toLowerCase().match(/applewebkit\/(\d+)/)}function s(u){if(u[0]=(this.useColors?"%c":"")+this.namespace+(this.useColors?" %c":" ")+u[0]+(this.useColors?"%c ":" ")+"+"+r.exports.humanize(this.diff),!this.useColors)return;const l="color: "+this.color;u.splice(1,0,l,"color: inherit");let t=0,o=0;u[0].replace(/%[a-zA-Z%]/g,i=>{i!=="%%"&&(t++,i==="%c"&&(o=t))}),u.splice(o,0,l)}n.log=console.debug||console.log||(()=>{});function c(u){try{u?n.storage.setItem("debug",u):n.storage.removeItem("debug")}catch{}}function a(){let u;try{u=n.storage.getItem("debug")}catch{}return!u&&typeof process<"u"&&"env"in process&&(u=process.env.DEBUG),u}function f(){try{return localStorage}catch{}}r.exports=X(n);const{formatters:C}=r.exports;C.j=function(u){try{return JSON.stringify(u)}catch(l){return"[UnexpectedJSONParseError]: "+l.message}}})(k,k.exports);var ee=k.exports;const re=K(ee),te=re("electron-trpc:renderer:ipcLink"),ne=()=>{const r=globalThis.electronTRPC;if(!r)throw new Error("Could not find `electronTRPC` global. Check that `exposeElectronTRPC` has been called in your preload file.");return r};var p,E,T,v;class oe{constructor(){O(this,T);O(this,p,new Map);O(this,E,ne());m(this,E).onMessage(n=>{S(this,T,v).call(this,n)})}request(n,e){const{type:s,id:c}=n;return m(this,p).set(c,{type:s,callbacks:e,op:n}),m(this,E).sendMessage({method:"request",operation:n}),()=>{var f;const a=(f=m(this,p).get(c))==null?void 0:f.callbacks;m(this,p).delete(c),a==null||a.complete(),s==="subscription"&&m(this,E).sendMessage({id:c,method:"subscription.stop"})}}}p=new WeakMap,E=new WeakMap,T=new WeakSet,v=function(n){te("handling response",n);const e=n.id&&m(this,p).get(n.id);e&&(e.callbacks.next(n),"result"in n&&n.result.type==="stopped"&&e.callbacks.complete())};function se(){return r=>{const n=new oe;return({op:e})=>B(s=>{e.input=r.transformer.serialize(e.input);const c=n.request(e,{error(a){s.error(a),c()},complete(){s.complete()},next(a){const f=G(a,r);if(!f.ok){s.error(y.from(f.error));return}s.next({result:f.result}),e.type!=="subscription"&&(c(),s.complete())}});return()=>{c()}})}}exports.ELECTRON_TRPC_CHANNEL=q;exports.ipcLink=se;
++"use strict";var x=(r,t,e)=>{if(!t.has(r))throw TypeError("Cannot "+e)};var m=(r,t,e)=>(x(r,t,"read from private field"),e?e.call(r):t.get(r)),R=(r,t,e)=>{if(t.has(r))throw TypeError("Cannot add the same private member more than once");t instanceof WeakSet?t.add(r):t.set(r,e)};var I=(r,t,e)=>(x(r,t,"access private method"),e);Object.defineProperty(exports,Symbol.toStringTag,{value:"Module"});const W="electron-trpc";function H(r){const t={subscribe(e){let s=null,c=!1,a=!1,f=!1;function d(){if(s===null){f=!0;return}a||(a=!0,typeof s=="function"?s():s&&s.unsubscribe())}return s=r({next(u){var l;c||(l=e.next)==null||l.call(e,u)},error(u){var l;c||(c=!0,(l=e.error)==null||l.call(e,u),d())},complete(){var u;c||(c=!0,(u=e.complete)==null||u.call(e),d())}}),f&&d(),{unsubscribe:d}},pipe(...e){return e.reduce(K,t)}};return t}function K(r,t){return t(r)}function O(r){return!!r&&!Array.isArray(r)&&typeof r=="object"}class V extends Error{}function Z(r){if(r instanceof Error)return r;const t=typeof r;if(!(t==="undefined"||t==="function"||r===null)){if(t!=="object")return new Error(String(r));if(O(r)){const e=new V;for(const s in r)e[s]=r[s];return e}}}var S,L,j,z,D,_;typeof window>"u"||"Deno"in window||((L=(S=globalThis.process)==null?void 0:S.env)==null?void 0:L.NODE_ENV)==="test"||(z=(j=globalThis.process)==null?void 0:j.env)!=null&&z.JEST_WORKER_ID||(_=(D=globalThis.process)==null?void 0:D.env)!=null&&_.VITEST_WORKER_ID;function B(r){return r instanceof p||r instanceof Error&&r.name==="TRPCClientError"}function G(r){return O(r)&&O(r.error)&&typeof r.error.code=="number"&&typeof r.error.message=="string"}class p extends Error{static from(t,e={}){const s=t;return B(s)?(e.meta&&(s.meta={...s.meta,...e.meta}),s):G(s)?new p(s.error.message,{...e,result:s}):s instanceof Error?new p(s.message,{...e,cause:Z(s)}):new p("Unknown error",{...e,cause:s})}constructor(t,e){var c,a;const s=e==null?void 0:e.cause;super(t,{cause:s}),this.meta=e==null?void 0:e.meta,this.cause=s,this.shape=(c=e==null?void 0:e.result)==null?void 0:c.error,this.data=(a=e==null?void 0:e.result)==null?void 0:a.error.data,this.name="TRPCClientError",Object.setPrototypeOf(this,p.prototype)}}function Q(r){const t=r;return t?"input"in t?t:{input:t,output:t}:{input:{serialize:e=>e,deserialize:e=>e},output:{serialize:e=>e,deserialize:e=>e}}}function X(r){return r&&r.__esModule&&Object.prototype.hasOwnProperty.call(r,"default")?r.default:r}var M={exports:{}},A,N;function Y(){if(N)return A;N=1;var r=1e3,t=r*60,e=t*60,s=e*24,c=s*7,a=s*365.25;A=function(n,o){o=o||{};var i=typeof n;if(i==="string"&&n.length>0)return f(n);if(i==="number"&&isFinite(n))return o.long?u(n):d(n);throw new Error("val is not a non-empty string or a valid number. val="+JSON.stringify(n))};function f(n){if(n=String(n),!(n.length>100)){var o=/^(-?(?:\d+)?\.?\d+) *(milliseconds?|msecs?|ms|seconds?|secs?|s|minutes?|mins?|m|hours?|hrs?|h|days?|d|weeks?|w|years?|yrs?|y)?$/i.exec(n);if(o){var i=parseFloat(o[1]),h=(o[2]||"ms").toLowerCase();switch(h){case"years":case"year":case"yrs":case"yr":case"y":return i*a;case"weeks":case"week":case"w":return i*c;case"days":case"day":case"d":return i*s;case"hours":case"hour":case"hrs":case"hr":case"h":return i*e;case"minutes":case"minute":case"mins":case"min":case"m":return i*t;case"seconds":case"second":case"secs":case"sec":case"s":return i*r;case"milliseconds":case"millisecond":case"msecs":case"msec":case"ms":return i;default:return}}}}function d(n){var o=Math.abs(n);return o>=s?Math.round(n/s)+"d":o>=e?Math.round(n/e)+"h":o>=t?Math.round(n/t)+"m":o>=r?Math.round(n/r)+"s":n+"ms"}function u(n){var o=Math.abs(n);return o>=s?l(n,o,s,"day"):o>=e?l(n,o,e,"hour"):o>=t?l(n,o,t,"minute"):o>=r?l(n,o,r,"second"):n+" ms"}function l(n,o,i,h){var b=o>=i*1.5;return Math.round(n/i)+" "+h+(b?"s":"")}return A}function ee(r){e.debug=e,e.default=e,e.coerce=u,e.disable=a,e.enable=c,e.enabled=f,e.humanize=Y(),e.destroy=l,Object.keys(r).forEach(n=>{e[n]=r[n]}),e.names=[],e.skips=[],e.formatters={};function t(n){let o=0;for(let i=0;i<n.length;i++)o=(o<<5)-o+n.charCodeAt(i),o|=0;return e.colors[Math.abs(o)%e.colors.length]}e.selectColor=t;function e(n){let o,i=null,h,b;function g(...C){if(!g.enabled)return;const F=g,E=Number(new Date),U=E-(o||E);F.diff=U,F.prev=o,F.curr=E,o=E,C[0]=e.coerce(C[0]),typeof C[0]!="string"&&C.unshift("%O");let k=0;C[0]=C[0].replace(/%([a-zA-Z%])/g,(v,$)=>{if(v==="%%")return"%";k++;const P=e.formatters[$];if(typeof P=="function"){const J=C[k];v=P.call(F,J),C.splice(k,1),k--}return v}),e.formatArgs.call(F,C),(F.log||e.log).apply(F,C)}return g.namespace=n,g.useColors=e.useColors(),g.color=e.selectColor(n),g.extend=s,g.destroy=e.destroy,Object.defineProperty(g,"enabled",{enumerable:!0,configurable:!1,get:()=>i!==null?i:(h!==e.namespaces&&(h=e.namespaces,b=e.enabled(n)),b),set:C=>{i=C}}),typeof e.init=="function"&&e.init(g),g}function s(n,o){const i=e(this.namespace+(typeof o>"u"?":":o)+n);return i.log=this.log,i}function c(n){e.save(n),e.namespaces=n,e.names=[],e.skips=[];let o;const i=(typeof n=="string"?n:"").split(/[\s,]+/),h=i.length;for(o=0;o<h;o++)i[o]&&(n=i[o].replace(/\*/g,".*?"),n[0]==="-"?e.skips.push(new RegExp("^"+n.slice(1)+"$")):e.names.push(new RegExp("^"+n+"$")))}function a(){const n=[...e.names.map(d),...e.skips.map(d).map(o=>"-"+o)].join(",");return e.enable(""),n}function f(n){if(n[n.length-1]==="*")return!0;let o,i;for(o=0,i=e.skips.length;o<i;o++)if(e.skips[o].test(n))return!1;for(o=0,i=e.names.length;o<i;o++)if(e.names[o].test(n))return!0;return!1}function d(n){return n.toString().substring(2,n.toString().length-2).replace(/\.\*\?$/,"*")}function u(n){return n instanceof Error?n.stack||n.message:n}function l(){console.warn("Instance method `debug.destroy()` is deprecated and no longer does anything. It will be removed in the next major version of `debug`.")}return e.enable(e.load()),e}var re=ee;(function(r,t){t.formatArgs=s,t.save=c,t.load=a,t.useColors=e,t.storage=f(),t.destroy=(()=>{let u=!1;return()=>{u||(u=!0,console.warn("Instance method `debug.destroy()` is deprecated and no longer does anything. It will be removed in the next major version of `debug`."))}})(),t.colors=["#0000CC","#0000FF","#0033CC","#0033FF","#0066CC","#0066FF","#0099CC","#0099FF","#00CC00","#00CC33","#00CC66","#00CC99","#00CCCC","#00CCFF","#3300CC","#3300FF","#3333CC","#3333FF","#3366CC","#3366FF","#3399CC","#3399FF","#33CC00","#33CC33","#33CC66","#33CC99","#33CCCC","#33CCFF","#6600CC","#6600FF","#6633CC","#6633FF","#66CC00","#66CC33","#9900CC","#9900FF","#9933CC","#9933FF","#99CC00","#99CC33","#CC0000","#CC0033","#CC0066","#CC0099","#CC00CC","#CC00FF","#CC3300","#CC3333","#CC3366","#CC3399","#CC33CC","#CC33FF","#CC6600","#CC6633","#CC9900","#CC9933","#CCCC00","#CCCC33","#FF0000","#FF0033","#FF0066","#FF0099","#FF00CC","#FF00FF","#FF3300","#FF3333","#FF3366","#FF3399","#FF33CC","#FF33FF","#FF6600","#FF6633","#FF9900","#FF9933","#FFCC00","#FFCC33"];function e(){return typeof window<"u"&&window.process&&(window.process.type==="renderer"||window.process.__nwjs)?!0:typeof navigator<"u"&&navigator.userAgent&&navigator.userAgent.toLowerCase().match(/(edge|trident)\/(\d+)/)?!1:typeof document<"u"&&document.documentElement&&document.documentElement.style&&document.documentElement.style.WebkitAppearance||typeof window<"u"&&window.console&&(window.console.firebug||window.console.exception&&window.console.table)||typeof navigator<"u"&&navigator.userAgent&&navigator.userAgent.toLowerCase().match(/firefox\/(\d+)/)&&parseInt(RegExp.$1,10)>=31||typeof navigator<"u"&&navigator.userAgent&&navigator.userAgent.toLowerCase().match(/applewebkit\/(\d+)/)}function s(u){if(u[0]=(this.useColors?"%c":"")+this.namespace+(this.useColors?" %c":" ")+u[0]+(this.useColors?"%c ":" ")+"+"+r.exports.humanize(this.diff),!this.useColors)return;const l="color: "+this.color;u.splice(1,0,l,"color: inherit");let n=0,o=0;u[0].replace(/%[a-zA-Z%]/g,i=>{i!=="%%"&&(n++,i==="%c"&&(o=n))}),u.splice(o,0,l)}t.log=console.debug||console.log||(()=>{});function c(u){try{u?t.storage.setItem("debug",u):t.storage.removeItem("debug")}catch{}}function a(){let u;try{u=t.storage.getItem("debug")}catch{}return!u&&typeof process<"u"&&"env"in process&&(u=process.env.DEBUG),u}function f(){try{return localStorage}catch{}}r.exports=re(t);const{formatters:d}=r.exports;d.j=function(u){try{return JSON.stringify(u)}catch(l){return"[UnexpectedJSONParseError]: "+l.message}}})(M,M.exports);var te=M.exports;const ne=X(te);function oe(r,t){if("error"in r){const s=t.deserialize(r.error);return{ok:!1,error:{...r,error:s}}}return{ok:!0,result:{...r.result,...(!r.result.type||r.result.type==="data")&&{type:"data",data:t.deserialize(r.result.data)}}}}const se=ne("electron-trpc:renderer:ipcLink"),ie=()=>{const r=globalThis.electronTRPC;if(!r)throw new Error("Could not find `electronTRPC` global. Check that `exposeElectronTRPC` has been called in your preload file.");return r};var y,w,T,q;class ue{constructor(){R(this,T);R(this,y,new Map);R(this,w,ie());m(this,w).onMessage(t=>{I(this,T,q).call(this,t)})}request(t,e){const{type:s,id:c}=t;return m(this,y).set(c,{type:s,callbacks:e,op:t}),m(this,w).sendMessage({method:"request",operation:t}),()=>{var f;const a=(f=m(this,y).get(c))==null?void 0:f.callbacks;m(this,y).delete(c),a==null||a.complete(),s==="subscription"&&m(this,w).sendMessage({id:c,method:"subscription.stop"})}}}y=new WeakMap,w=new WeakMap,T=new WeakSet,q=function(t){se("handling response",t);const e=t.id&&m(this,y).get(t.id);e&&(e.callbacks.next(t),"result"in t&&t.result.type==="stopped"&&e.callbacks.complete())};function ce(r){return()=>{const t=new ue,e=Q(r==null?void 0:r.transformer);return({op:s})=>H(c=>{s.input=e.input.serialize(s.input);const a=t.request(s,{error(f){c.error(f),a()},complete(){c.complete()},next(f){const d=oe(f,e.output);if(!d.ok){c.error(p.from(d.error));return}c.next({result:d.result}),s.type!=="subscription"&&(a(),c.complete())}});return()=>{a()}})}}exports.ELECTRON_TRPC_CHANNEL=W;exports.ipcLink=ce;
+diff --git a/dist/renderer.d.ts b/dist/renderer.d.ts
+index ae7f709ad6be23d9dd726a03dbd15c2f67b825ea..1cedadb571c825da7819a4e7501b5ea656c3c83d 100644
+--- a/dist/renderer.d.ts
++++ b/dist/renderer.d.ts
+@@ -1,9 +1,11 @@
+ // Generated by dts-bundle-generator v9.5.1
+ 
+ import { TRPCLink } from '@trpc/client';
+-import { AnyRouter } from '@trpc/server';
++import { TransformerOptions } from '@trpc/client/unstable-internals';
++import { AnyTRPCRouter, inferTRPCClientTypes } from '@trpc/server';
+ 
+ export declare const ELECTRON_TRPC_CHANNEL = "electron-trpc";
+-export declare function ipcLink<TRouter extends AnyRouter>(): TRPCLink<TRouter>;
++export type IPCLinkOptions<TRouter extends AnyTRPCRouter> = TransformerOptions<inferTRPCClientTypes<TRouter>>;
++export declare function ipcLink<TRouter extends AnyTRPCRouter>(opts?: IPCLinkOptions<TRouter>): TRPCLink<TRouter>;
+ 
+ export {};
+diff --git a/dist/renderer.mjs b/dist/renderer.mjs
+index 2f1b91669144d5509e424cd422b53c1f55cf8583..4be4c448a2383b2ed7f28e59f873f52550bc860c 100644
+--- a/dist/renderer.mjs
++++ b/dist/renderer.mjs
+@@ -1,27 +1,19 @@
+-var _ = (r, n, e) => {
+-  if (!n.has(r))
++var P = (r, t, e) => {
++  if (!t.has(r))
+     throw TypeError("Cannot " + e);
+ };
+-var g = (r, n, e) => (_(r, n, "read from private field"), e ? e.call(r) : n.get(r)), O = (r, n, e) => {
+-  if (n.has(r))
++var m = (r, t, e) => (P(r, t, "read from private field"), e ? e.call(r) : t.get(r)), R = (r, t, e) => {
++  if (t.has(r))
+     throw TypeError("Cannot add the same private member more than once");
+-  n instanceof WeakSet ? n.add(r) : n.set(r, e);
++  t instanceof WeakSet ? t.add(r) : t.set(r, e);
+ };
+-var I = (r, n, e) => (_(r, n, "access private method"), e);
+-const ie = "electron-trpc";
+-function q(r) {
+-  return r;
+-}
+-function z(r) {
+-  return r.length === 0 ? q : r.length === 1 ? r[0] : function(e) {
+-    return r.reduce((s, c) => c(s), e);
+-  };
+-}
+-function $(r) {
+-  const n = {
++var I = (r, t, e) => (P(r, t, "access private method"), e);
++const ae = "electron-trpc";
++function W(r) {
++  const t = {
+     subscribe(e) {
+       let s = null, c = !1, a = !1, f = !1;
+-      function C() {
++      function d() {
+         if (s === null) {
+           f = !0;
+           return;
+@@ -35,163 +27,127 @@ function $(r) {
+         },
+         error(u) {
+           var l;
+-          c || (c = !0, (l = e.error) == null || l.call(e, u), C());
++          c || (c = !0, (l = e.error) == null || l.call(e, u), d());
+         },
+         complete() {
+           var u;
+-          c || (c = !0, (u = e.complete) == null || u.call(e), C());
++          c || (c = !0, (u = e.complete) == null || u.call(e), d());
+         }
+-      }), f && C(), {
+-        unsubscribe: C
++      }), f && d(), {
++        unsubscribe: d
+       };
+     },
+     pipe(...e) {
+-      return z(e)(n);
++      return e.reduce(K, t);
+     }
+   };
+-  return n;
++  return t;
+ }
+-function D(r) {
+-  const n = /* @__PURE__ */ Object.create(null);
+-  for (const e in r) {
+-    const s = r[e];
+-    n[s] = e;
+-  }
+-  return n;
++function K(r, t) {
++  return t(r);
+ }
+-const L = {
+-  /**
+-  * Invalid JSON was received by the server.
+-  * An error occurred on the server while parsing the JSON text.
+-  */
+-  PARSE_ERROR: -32700,
+-  /**
+-  * The JSON sent is not a valid Request object.
+-  */
+-  BAD_REQUEST: -32600,
+-  // Internal JSON-RPC error
+-  INTERNAL_SERVER_ERROR: -32603,
+-  NOT_IMPLEMENTED: -32603,
+-  // Implementation specific errors
+-  UNAUTHORIZED: -32001,
+-  FORBIDDEN: -32003,
+-  NOT_FOUND: -32004,
+-  METHOD_NOT_SUPPORTED: -32005,
+-  TIMEOUT: -32008,
+-  CONFLICT: -32009,
+-  PRECONDITION_FAILED: -32012,
+-  PAYLOAD_TOO_LARGE: -32013,
+-  UNPROCESSABLE_CONTENT: -32022,
+-  TOO_MANY_REQUESTS: -32029,
+-  CLIENT_CLOSED_REQUEST: -32099
+-};
+-D(L);
+-D(L);
+-function B(r) {
++function O(r) {
+   return !!r && !Array.isArray(r) && typeof r == "object";
+ }
+-class Y extends Error {
++class V extends Error {
+ }
+-function H(r) {
++function Z(r) {
+   if (r instanceof Error)
+     return r;
+-  const n = typeof r;
+-  if (!(n === "undefined" || n === "function" || r === null)) {
+-    if (n !== "object")
++  const t = typeof r;
++  if (!(t === "undefined" || t === "function" || r === null)) {
++    if (t !== "object")
+       return new Error(String(r));
+-    if (B(r)) {
+-      const e = new Y();
++    if (O(r)) {
++      const e = new V();
+       for (const s in r)
+         e[s] = r[s];
+       return e;
+     }
+   }
+ }
+-function M(r) {
+-  return !!r && !Array.isArray(r) && typeof r == "object";
+-}
+-function J(r) {
+-  return r instanceof y || /**
++var S, j, D, N, L, _;
++typeof window > "u" || "Deno" in window || // eslint-disable-next-line @typescript-eslint/dot-notation
++((j = (S = globalThis.process) == null ? void 0 : S.env) == null ? void 0 : j.NODE_ENV) === "test" || (N = (D = globalThis.process) == null ? void 0 : D.env) != null && N.JEST_WORKER_ID || (_ = (L = globalThis.process) == null ? void 0 : L.env) != null && _.VITEST_WORKER_ID;
++function B(r) {
++  return r instanceof p || /**
+   * @deprecated
+   * Delete in next major
+   */
+   r instanceof Error && r.name === "TRPCClientError";
+ }
+-function Q(r) {
+-  return M(r) && M(r.error) && typeof r.error.code == "number" && typeof r.error.message == "string";
++function G(r) {
++  return O(r) && O(r.error) && typeof r.error.code == "number" && typeof r.error.message == "string";
+ }
+-class y extends Error {
+-  static from(n, e = {}) {
+-    const s = n;
+-    return J(s) ? (e.meta && (s.meta = {
++class p extends Error {
++  static from(t, e = {}) {
++    const s = t;
++    return B(s) ? (e.meta && (s.meta = {
+       ...s.meta,
+       ...e.meta
+-    }), s) : Q(s) ? new y(s.error.message, {
++    }), s) : G(s) ? new p(s.error.message, {
+       ...e,
+       result: s
+-    }) : s instanceof Error ? new y(s.message, {
++    }) : s instanceof Error ? new p(s.message, {
+       ...e,
+-      cause: H(s)
+-    }) : new y("Unknown error", {
++      cause: Z(s)
++    }) : new p("Unknown error", {
+       ...e,
+       cause: s
+     });
+   }
+-  constructor(n, e) {
++  constructor(t, e) {
+     var c, a;
+     const s = e == null ? void 0 : e.cause;
+-    super(n, {
++    super(t, {
+       cause: s
+-    }), this.meta = e == null ? void 0 : e.meta, this.cause = s, this.shape = (c = e == null ? void 0 : e.result) == null ? void 0 : c.error, this.data = (a = e == null ? void 0 : e.result) == null ? void 0 : a.error.data, this.name = "TRPCClientError", Object.setPrototypeOf(this, y.prototype);
++    }), this.meta = e == null ? void 0 : e.meta, this.cause = s, this.shape = (c = e == null ? void 0 : e.result) == null ? void 0 : c.error, this.data = (a = e == null ? void 0 : e.result) == null ? void 0 : a.error.data, this.name = "TRPCClientError", Object.setPrototypeOf(this, p.prototype);
+   }
+ }
+-function Z(r, n) {
+-  if ("error" in r) {
+-    const s = n.transformer.deserialize(r.error);
+-    return {
+-      ok: !1,
+-      error: {
+-        ...r,
+-        error: s
+-      }
+-    };
+-  }
+-  return { ok: !0, result: {
+-    ...r.result,
+-    ...(!r.result.type || r.result.type === "data") && {
+-      type: "data",
+-      data: n.transformer.deserialize(r.result.data)
++function H(r) {
++  const t = r;
++  return t ? "input" in t ? t : {
++    input: t,
++    output: t
++  } : {
++    input: {
++      serialize: (e) => e,
++      deserialize: (e) => e
++    },
++    output: {
++      serialize: (e) => e,
++      deserialize: (e) => e
+     }
+-  } };
++  };
+ }
+-function G(r) {
++function Q(r) {
+   return r && r.__esModule && Object.prototype.hasOwnProperty.call(r, "default") ? r.default : r;
+ }
+-var N = { exports: {} }, k, S;
+-function K() {
+-  if (S)
+-    return k;
+-  S = 1;
+-  var r = 1e3, n = r * 60, e = n * 60, s = e * 24, c = s * 7, a = s * 365.25;
+-  k = function(t, o) {
++var M = { exports: {} }, T, z;
++function X() {
++  if (z)
++    return T;
++  z = 1;
++  var r = 1e3, t = r * 60, e = t * 60, s = e * 24, c = s * 7, a = s * 365.25;
++  T = function(n, o) {
+     o = o || {};
+-    var i = typeof t;
+-    if (i === "string" && t.length > 0)
+-      return f(t);
+-    if (i === "number" && isFinite(t))
+-      return o.long ? u(t) : C(t);
++    var i = typeof n;
++    if (i === "string" && n.length > 0)
++      return f(n);
++    if (i === "number" && isFinite(n))
++      return o.long ? u(n) : d(n);
+     throw new Error(
+-      "val is not a non-empty string or a valid number. val=" + JSON.stringify(t)
++      "val is not a non-empty string or a valid number. val=" + JSON.stringify(n)
+     );
+   };
+-  function f(t) {
+-    if (t = String(t), !(t.length > 100)) {
++  function f(n) {
++    if (n = String(n), !(n.length > 100)) {
+       var o = /^(-?(?:\d+)?\.?\d+) *(milliseconds?|msecs?|ms|seconds?|secs?|s|minutes?|mins?|m|hours?|hrs?|h|days?|d|weeks?|w|years?|yrs?|y)?$/i.exec(
+-        t
++        n
+       );
+       if (o) {
+-        var i = parseFloat(o[1]), m = (o[2] || "ms").toLowerCase();
+-        switch (m) {
++        var i = parseFloat(o[1]), g = (o[2] || "ms").toLowerCase();
++        switch (g) {
+           case "years":
+           case "year":
+           case "yrs":
+@@ -217,7 +173,7 @@ function K() {
+           case "mins":
+           case "min":
+           case "m":
+-            return i * n;
++            return i * t;
+           case "seconds":
+           case "second":
+           case "secs":
+@@ -236,109 +192,109 @@ function K() {
+       }
+     }
+   }
+-  function C(t) {
+-    var o = Math.abs(t);
+-    return o >= s ? Math.round(t / s) + "d" : o >= e ? Math.round(t / e) + "h" : o >= n ? Math.round(t / n) + "m" : o >= r ? Math.round(t / r) + "s" : t + "ms";
++  function d(n) {
++    var o = Math.abs(n);
++    return o >= s ? Math.round(n / s) + "d" : o >= e ? Math.round(n / e) + "h" : o >= t ? Math.round(n / t) + "m" : o >= r ? Math.round(n / r) + "s" : n + "ms";
+   }
+-  function u(t) {
+-    var o = Math.abs(t);
+-    return o >= s ? l(t, o, s, "day") : o >= e ? l(t, o, e, "hour") : o >= n ? l(t, o, n, "minute") : o >= r ? l(t, o, r, "second") : t + " ms";
++  function u(n) {
++    var o = Math.abs(n);
++    return o >= s ? l(n, o, s, "day") : o >= e ? l(n, o, e, "hour") : o >= t ? l(n, o, t, "minute") : o >= r ? l(n, o, r, "second") : n + " ms";
+   }
+-  function l(t, o, i, m) {
+-    var E = o >= i * 1.5;
+-    return Math.round(t / i) + " " + m + (E ? "s" : "");
++  function l(n, o, i, g) {
++    var b = o >= i * 1.5;
++    return Math.round(n / i) + " " + g + (b ? "s" : "");
+   }
+-  return k;
++  return T;
+ }
+-function V(r) {
+-  e.debug = e, e.default = e, e.coerce = u, e.disable = a, e.enable = c, e.enabled = f, e.humanize = K(), e.destroy = l, Object.keys(r).forEach((t) => {
+-    e[t] = r[t];
++function Y(r) {
++  e.debug = e, e.default = e, e.coerce = u, e.disable = a, e.enable = c, e.enabled = f, e.humanize = X(), e.destroy = l, Object.keys(r).forEach((n) => {
++    e[n] = r[n];
+   }), e.names = [], e.skips = [], e.formatters = {};
+-  function n(t) {
++  function t(n) {
+     let o = 0;
+-    for (let i = 0; i < t.length; i++)
+-      o = (o << 5) - o + t.charCodeAt(i), o |= 0;
++    for (let i = 0; i < n.length; i++)
++      o = (o << 5) - o + n.charCodeAt(i), o |= 0;
+     return e.colors[Math.abs(o) % e.colors.length];
+   }
+-  e.selectColor = n;
+-  function e(t) {
+-    let o, i = null, m, E;
+-    function h(...d) {
++  e.selectColor = t;
++  function e(n) {
++    let o, i = null, g, b;
++    function h(...C) {
+       if (!h.enabled)
+         return;
+-      const F = h, b = Number(/* @__PURE__ */ new Date()), x = b - (o || b);
+-      F.diff = x, F.prev = o, F.curr = b, o = b, d[0] = e.coerce(d[0]), typeof d[0] != "string" && d.unshift("%O");
+-      let R = 0;
+-      d[0] = d[0].replace(/%([a-zA-Z%])/g, (A, U) => {
++      const F = h, E = Number(/* @__PURE__ */ new Date()), U = E - (o || E);
++      F.diff = U, F.prev = o, F.curr = E, o = E, C[0] = e.coerce(C[0]), typeof C[0] != "string" && C.unshift("%O");
++      let k = 0;
++      C[0] = C[0].replace(/%([a-zA-Z%])/g, (A, $) => {
+         if (A === "%%")
+           return "%";
+-        R++;
+-        const P = e.formatters[U];
+-        if (typeof P == "function") {
+-          const j = d[R];
+-          A = P.call(F, j), d.splice(R, 1), R--;
++        k++;
++        const x = e.formatters[$];
++        if (typeof x == "function") {
++          const J = C[k];
++          A = x.call(F, J), C.splice(k, 1), k--;
+         }
+         return A;
+-      }), e.formatArgs.call(F, d), (F.log || e.log).apply(F, d);
++      }), e.formatArgs.call(F, C), (F.log || e.log).apply(F, C);
+     }
+-    return h.namespace = t, h.useColors = e.useColors(), h.color = e.selectColor(t), h.extend = s, h.destroy = e.destroy, Object.defineProperty(h, "enabled", {
++    return h.namespace = n, h.useColors = e.useColors(), h.color = e.selectColor(n), h.extend = s, h.destroy = e.destroy, Object.defineProperty(h, "enabled", {
+       enumerable: !0,
+       configurable: !1,
+-      get: () => i !== null ? i : (m !== e.namespaces && (m = e.namespaces, E = e.enabled(t)), E),
+-      set: (d) => {
+-        i = d;
++      get: () => i !== null ? i : (g !== e.namespaces && (g = e.namespaces, b = e.enabled(n)), b),
++      set: (C) => {
++        i = C;
+       }
+     }), typeof e.init == "function" && e.init(h), h;
+   }
+-  function s(t, o) {
+-    const i = e(this.namespace + (typeof o > "u" ? ":" : o) + t);
++  function s(n, o) {
++    const i = e(this.namespace + (typeof o > "u" ? ":" : o) + n);
+     return i.log = this.log, i;
+   }
+-  function c(t) {
+-    e.save(t), e.namespaces = t, e.names = [], e.skips = [];
++  function c(n) {
++    e.save(n), e.namespaces = n, e.names = [], e.skips = [];
+     let o;
+-    const i = (typeof t == "string" ? t : "").split(/[\s,]+/), m = i.length;
+-    for (o = 0; o < m; o++)
+-      i[o] && (t = i[o].replace(/\*/g, ".*?"), t[0] === "-" ? e.skips.push(new RegExp("^" + t.slice(1) + "$")) : e.names.push(new RegExp("^" + t + "$")));
++    const i = (typeof n == "string" ? n : "").split(/[\s,]+/), g = i.length;
++    for (o = 0; o < g; o++)
++      i[o] && (n = i[o].replace(/\*/g, ".*?"), n[0] === "-" ? e.skips.push(new RegExp("^" + n.slice(1) + "$")) : e.names.push(new RegExp("^" + n + "$")));
+   }
+   function a() {
+-    const t = [
+-      ...e.names.map(C),
+-      ...e.skips.map(C).map((o) => "-" + o)
++    const n = [
++      ...e.names.map(d),
++      ...e.skips.map(d).map((o) => "-" + o)
+     ].join(",");
+-    return e.enable(""), t;
++    return e.enable(""), n;
+   }
+-  function f(t) {
+-    if (t[t.length - 1] === "*")
++  function f(n) {
++    if (n[n.length - 1] === "*")
+       return !0;
+     let o, i;
+     for (o = 0, i = e.skips.length; o < i; o++)
+-      if (e.skips[o].test(t))
++      if (e.skips[o].test(n))
+         return !1;
+     for (o = 0, i = e.names.length; o < i; o++)
+-      if (e.names[o].test(t))
++      if (e.names[o].test(n))
+         return !0;
+     return !1;
+   }
+-  function C(t) {
+-    return t.toString().substring(2, t.toString().length - 2).replace(/\.\*\?$/, "*");
++  function d(n) {
++    return n.toString().substring(2, n.toString().length - 2).replace(/\.\*\?$/, "*");
+   }
+-  function u(t) {
+-    return t instanceof Error ? t.stack || t.message : t;
++  function u(n) {
++    return n instanceof Error ? n.stack || n.message : n;
+   }
+   function l() {
+     console.warn("Instance method `debug.destroy()` is deprecated and no longer does anything. It will be removed in the next major version of `debug`.");
+   }
+   return e.enable(e.load()), e;
+ }
+-var W = V;
+-(function(r, n) {
+-  n.formatArgs = s, n.save = c, n.load = a, n.useColors = e, n.storage = f(), n.destroy = /* @__PURE__ */ (() => {
++var ee = Y;
++(function(r, t) {
++  t.formatArgs = s, t.save = c, t.load = a, t.useColors = e, t.storage = f(), t.destroy = /* @__PURE__ */ (() => {
+     let u = !1;
+     return () => {
+       u || (u = !0, console.warn("Instance method `debug.destroy()` is deprecated and no longer does anything. It will be removed in the next major version of `debug`."));
+     };
+-  })(), n.colors = [
++  })(), t.colors = [
+     "#0000CC",
+     "#0000FF",
+     "#0033CC",
+@@ -428,23 +384,23 @@ var W = V;
+       return;
+     const l = "color: " + this.color;
+     u.splice(1, 0, l, "color: inherit");
+-    let t = 0, o = 0;
++    let n = 0, o = 0;
+     u[0].replace(/%[a-zA-Z%]/g, (i) => {
+-      i !== "%%" && (t++, i === "%c" && (o = t));
++      i !== "%%" && (n++, i === "%c" && (o = n));
+     }), u.splice(o, 0, l);
+   }
+-  n.log = console.debug || console.log || (() => {
++  t.log = console.debug || console.log || (() => {
+   });
+   function c(u) {
+     try {
+-      u ? n.storage.setItem("debug", u) : n.storage.removeItem("debug");
++      u ? t.storage.setItem("debug", u) : t.storage.removeItem("debug");
+     } catch {
+     }
+   }
+   function a() {
+     let u;
+     try {
+-      u = n.storage.getItem("debug");
++      u = t.storage.getItem("debug");
+     } catch {
+     }
+     return !u && typeof process < "u" && "env" in process && (u = process.env.DEBUG), u;
+@@ -455,18 +411,38 @@ var W = V;
+     } catch {
+     }
+   }
+-  r.exports = W(n);
+-  const { formatters: C } = r.exports;
+-  C.j = function(u) {
++  r.exports = ee(t);
++  const { formatters: d } = r.exports;
++  d.j = function(u) {
+     try {
+       return JSON.stringify(u);
+     } catch (l) {
+       return "[UnexpectedJSONParseError]: " + l.message;
+     }
+   };
+-})(N, N.exports);
+-var X = N.exports;
+-const ee = /* @__PURE__ */ G(X), re = ee("electron-trpc:renderer:ipcLink"), te = () => {
++})(M, M.exports);
++var re = M.exports;
++const te = /* @__PURE__ */ Q(re);
++function ne(r, t) {
++  if ("error" in r) {
++    const s = t.deserialize(r.error);
++    return {
++      ok: !1,
++      error: {
++        ...r,
++        error: s
++      }
++    };
++  }
++  return { ok: !0, result: {
++    ...r.result,
++    ...(!r.result.type || r.result.type === "data") && {
++      type: "data",
++      data: t.deserialize(r.result.data)
++    }
++  } };
++}
++const oe = te("electron-trpc:renderer:ipcLink"), se = () => {
+   const r = globalThis.electronTRPC;
+   if (!r)
+     throw new Error(
+@@ -474,65 +450,65 @@ const ee = /* @__PURE__ */ G(X), re = ee("electron-trpc:renderer:ipcLink"), te =
+     );
+   return r;
+ };
+-var p, w, T, v;
+-class ne {
++var y, w, v, q;
++class ie {
+   constructor() {
+-    O(this, T);
+-    O(this, p, /* @__PURE__ */ new Map());
+-    O(this, w, te());
+-    g(this, w).onMessage((n) => {
+-      I(this, T, v).call(this, n);
++    R(this, v);
++    R(this, y, /* @__PURE__ */ new Map());
++    R(this, w, se());
++    m(this, w).onMessage((t) => {
++      I(this, v, q).call(this, t);
+     });
+   }
+-  request(n, e) {
+-    const { type: s, id: c } = n;
+-    return g(this, p).set(c, {
++  request(t, e) {
++    const { type: s, id: c } = t;
++    return m(this, y).set(c, {
+       type: s,
+       callbacks: e,
+-      op: n
+-    }), g(this, w).sendMessage({ method: "request", operation: n }), () => {
++      op: t
++    }), m(this, w).sendMessage({ method: "request", operation: t }), () => {
+       var f;
+-      const a = (f = g(this, p).get(c)) == null ? void 0 : f.callbacks;
+-      g(this, p).delete(c), a == null || a.complete(), s === "subscription" && g(this, w).sendMessage({
++      const a = (f = m(this, y).get(c)) == null ? void 0 : f.callbacks;
++      m(this, y).delete(c), a == null || a.complete(), s === "subscription" && m(this, w).sendMessage({
+         id: c,
+         method: "subscription.stop"
+       });
+     };
+   }
+ }
+-p = new WeakMap(), w = new WeakMap(), T = new WeakSet(), v = function(n) {
+-  re("handling response", n);
+-  const e = n.id && g(this, p).get(n.id);
+-  e && (e.callbacks.next(n), "result" in n && n.result.type === "stopped" && e.callbacks.complete());
++y = new WeakMap(), w = new WeakMap(), v = new WeakSet(), q = function(t) {
++  oe("handling response", t);
++  const e = t.id && m(this, y).get(t.id);
++  e && (e.callbacks.next(t), "result" in t && t.result.type === "stopped" && e.callbacks.complete());
+ };
+-function ue() {
+-  return (r) => {
+-    const n = new ne();
+-    return ({ op: e }) => $((s) => {
+-      e.input = r.transformer.serialize(e.input);
+-      const c = n.request(e, {
+-        error(a) {
+-          s.error(a), c();
++function le(r) {
++  return () => {
++    const t = new ie(), e = H(r == null ? void 0 : r.transformer);
++    return ({ op: s }) => W((c) => {
++      s.input = e.input.serialize(s.input);
++      const a = t.request(s, {
++        error(f) {
++          c.error(f), a();
+         },
+         complete() {
+-          s.complete();
++          c.complete();
+         },
+-        next(a) {
+-          const f = Z(a, r);
+-          if (!f.ok) {
+-            s.error(y.from(f.error));
++        next(f) {
++          const d = ne(f, e.output);
++          if (!d.ok) {
++            c.error(p.from(d.error));
+             return;
+           }
+-          s.next({ result: f.result }), e.type !== "subscription" && (c(), s.complete());
++          c.next({ result: d.result }), s.type !== "subscription" && (a(), c.complete());
+         }
+       });
+       return () => {
+-        c();
++        a();
+       };
+     });
+   };
+ }
+ export {
+-  ie as ELECTRON_TRPC_CHANNEL,
+-  ue as ipcLink
++  ae as ELECTRON_TRPC_CHANNEL,
++  le as ipcLink
+ };
+diff --git a/package.json b/package.json
+index 683be7f2cafbcb5238bc2cf6e8bacf0af56b09cf..390c7da7f5be83e8968e2cb676bc8d3d4cb5879e 100644
+--- a/package.json
++++ b/package.json
+@@ -1,7 +1,9 @@
+ {
+   "name": "electron-trpc",
+-  "description": "Electron support for tRPC",
+   "version": "0.6.1",
++  "description": "Electron support for tRPC",
++  "license": "MIT",
++  "author": "Jason Nall <jsonnull@gmail.com>",
+   "exports": {
+     "./main": {
+       "require": "./dist/main.cjs",
+@@ -14,18 +16,29 @@
+       "types": "./dist/renderer.d.ts"
+     }
+   },
+-  "author": "Jason Nall <jsonnull@gmail.com>",
+-  "license": "MIT",
+   "files": [
+     "dist",
+     "src",
+     "main.d.ts",
+     "renderer.d.ts"
+   ],
++  "scripts": {
++    "build": "tsc && vite build -c src/main/vite.config.ts && vite build -c src/renderer/vite.config.ts && corepack pnpm build:types",
++    "build:types": "dts-bundle-generator --config ./dts-bundle-generator.config.ts && corepack pnpm run copy:types",
++    "changeset": "changeset",
++    "copy:types": "cp dist/main.d.ts dist/renderer.d.ts ./",
++    "prepublishOnly": "corepack pnpm build",
++    "release": "changeset publish",
++    "test": "vitest -c vitest.config.ts",
++    "test:ci": "vitest run -c vitest.config.ts --coverage"
++  },
++  "dependencies": {
++    "debug": "^4.3.4"
++  },
+   "devDependencies": {
+     "@tanstack/react-query": "^5.32.1",
+-    "@trpc/client": "10.45.2",
+-    "@trpc/server": "10.45.2",
++    "@trpc/client": "next",
++    "@trpc/server": "next",
+     "@types/debug": "^4.1.12",
+     "@types/node": "^20.12.8",
+     "@vitest/coverage-v8": "^1.6.0",
+@@ -41,20 +54,8 @@
+     "zod": "^3.23.6"
+   },
+   "peerDependencies": {
+-    "@trpc/client": ">10.0.0",
+-    "@trpc/server": ">10.0.0",
++    "@trpc/client": ">=11.0.0",
++    "@trpc/server": ">=11.0.0",
+     "electron": ">19.0.0"
+-  },
+-  "dependencies": {
+-    "debug": "^4.3.4"
+-  },
+-  "scripts": {
+-    "build": "tsc && vite build -c src/main/vite.config.ts && vite build -c src/renderer/vite.config.ts && corepack pnpm build:types",
+-    "build:types": "dts-bundle-generator --config ./dts-bundle-generator.config.ts && corepack pnpm run copy:types",
+-    "copy:types": "cp dist/main.d.ts dist/renderer.d.ts ./",
+-    "test": "vitest -c vitest.config.ts",
+-    "test:ci": "vitest run -c vitest.config.ts --coverage",
+-    "changeset": "changeset",
+-    "release": "changeset publish"
+   }
+ }

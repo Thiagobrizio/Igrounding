@@ -1,0 +1,646 @@
+{
+  "addConductorModal": {
+    "bundleNumber": {
+      "label": "Bundle Number"
+    },
+    "bundleSpacing": {
+      "label": "Bundle Spacing"
+    },
+    "fromPhase": {
+      "label": "From Phase"
+    },
+    "isNeutral": {
+      "label": "Is Neutral"
+    },
+    "modalDescription": "Add conductor to the Transmission line.",
+    "modalTitle": "Add Conductor",
+    "name": {
+      "label": "Name"
+    },
+    "toPhase": {
+      "label": "To Phase"
+    },
+    "typeId": {
+      "label": "Conductor Type"
+    }
+  },
+  "addTowerModal": {
+    "distance": {
+      "label": "Distance"
+    },
+    "geometryId": {
+      "label": "Geometry Type"
+    },
+    "name": {
+      "label": "Name"
+    },
+    "resistance": {
+      "label": "Resistance"
+    }
+  },
+  "baseSelect": {
+    "noneFound": "None Found!",
+    "search": "Search...",
+    "select": "Please select an option."
+  },
+  "conductorConfiguration": {
+    "addTooltip": "Add a new conductor",
+    "bundleNumber": {
+      "label": "Bundle Number"
+    },
+    "bundleSpacing": {
+      "label": "Bundle Spacing"
+    },
+    "deleteAllTooltip": "Delete all conductors",
+    "deleteTooltip": "Delete Conductor",
+    "description": "Configure the conductors for the Transmission line",
+    "fromPhase": {
+      "label": "From Phase"
+    },
+    "isNeutral": {
+      "label": "Neutral?"
+    },
+    "name": {
+      "label": "Name"
+    },
+    "title": "Conductor Configuration",
+    "toPhase": {
+      "label": "To Phase"
+    },
+    "type": {
+      "label": "Type"
+    }
+  },
+  "conductorLocationTable": {
+    "x": {
+      "label": "X"
+    },
+    "y": {
+      "label": "Y"
+    }
+  },
+  "conductorLocations": {
+    "addConductor": {
+      "tooltip": "Add a conductor"
+    },
+    "deleteAll": {
+      "tooltip": "Delete all conductors"
+    },
+    "deleteConductorTooltip": "Delete conductor",
+    "mirrorTooltip": "Mirror conductors along the X-axis",
+    "number": {
+      "title": "Number"
+    },
+    "title": "Conductor Configuration",
+    "xCoord": {
+      "title": "X Coord"
+    },
+    "yCoord": {
+      "title": "Y Coord"
+    }
+  },
+  "conductorType": {
+    "acResistance25": {
+      "description": "The resistance of the conductor at 25° C AC",
+      "label": "Resistance (25° AC)"
+    },
+    "acResistance50": {
+      "description": "The resistance of the conductor at 50° celcius AC",
+      "label": "Resistance (50° AC)"
+    },
+    "acResistance75": {
+      "description": "The resistance of the conductor at 75° celcius AC",
+      "label": "Resistance (75° AC)"
+    },
+    "add": {
+      "title": "Add Conductor Type"
+    },
+    "coreDiameter": {
+      "description": "The diameter of the inner material, in mm.",
+      "label": "Core Diameter"
+    },
+    "currentCapacity": {
+      "description": "The current Capacity, in amperes.",
+      "label": "Current Capacity"
+    },
+    "dcResistance25": {
+      "description": "The resistance of the conductor at 25° celcius DC",
+      "label": "Resistance (25° DC)"
+    },
+    "edit": {
+      "title": "Edit Conductor Type"
+    },
+    "gmr": {
+      "description": "The geometric mean radius, in mm.",
+      "label": "Geometric Mean Radius"
+    },
+    "layers": {
+      "description": "The total number of layers",
+      "label": "Layers"
+    },
+    "name": {
+      "description": "Give the Conductor type a unique name.",
+      "label": "Name"
+    },
+    "noConductorSelectedErrorMessage": "Please select a conductor type.",
+    "noneFound": "No conductors found.",
+    "outerDiameter": {
+      "description": "The diameter of the entire conductor, in mm.",
+      "label": "Outer Diameter"
+    },
+    "searchConductors": "Search Conductors...",
+    "selectConductorType": "Select conductor type",
+    "stranding": {
+      "description": "The number of strands per layer, such as as 7/27",
+      "label": "Stranding"
+    },
+    "surfaceArea": {
+      "description": "The total surface area of the conductor, in mm^2",
+      "label": "Surface Area"
+    }
+  },
+  "conductorTypesPage": {
+    "add": {
+      "buttonText": "Create"
+    }
+  },
+  "conductors": {
+    "add": {
+      "buttonText": "Add Conductor"
+    }
+  },
+  "createConductorLocationModal": {
+    "x": {
+      "label": "X"
+    },
+    "y": {
+      "label": "Y"
+    }
+  },
+  "createConductorModal": {
+    "bundleNumber": {
+      "label": "Bundle Number"
+    },
+    "bundleSpacing": {
+      "label": "Bundle Spacing"
+    },
+    "fromPhase": {
+      "label": "From Phase"
+    },
+    "isNeutral": {
+      "label": "Is Neutral"
+    },
+    "name": {
+      "label": "Name"
+    },
+    "toPhase": {
+      "label": "To Phase"
+    },
+    "typeId": {
+      "label": "Conductor Type"
+    }
+  },
+  "createProjectForm": {
+    "name": {
+      "label": "Name"
+    }
+  },
+  "createSourceForm": {
+    "add": {
+      "buttonText": "Add Source",
+      "buttonTooltip": "Add a source to the project",
+      "description": "Add a source to the project",
+      "title": "Add a source"
+    },
+    "deletionWarning": "This will permanently delete the source.",
+    "edit": {
+      "title": "Edit Source"
+    },
+    "enabled": {
+      "description": "Uncheck to disable the source from affecting the circuit.",
+      "label": "Enabled"
+    },
+    "frequency": {
+      "label": "Frequency"
+    },
+    "isc1": {
+      "description": "Short Circuit 1 Phase Current.",
+      "label": "Short circuit 1 phase current"
+    },
+    "isc3": {
+      "description": "Short circuit 3 Phase Current.",
+      "label": "Short circuit 3 phase current"
+    },
+    "name": {
+      "description": "Name of the substation.",
+      "label": "Name",
+      "placeholder": "Substation one..."
+    },
+    "noneFound": "No source found.",
+    "phases": {
+      "description": "Number of phases.",
+      "label": "Phases"
+    },
+    "resistance": {
+      "description": "Resistance of the Source in ohms.",
+      "label": "Resistance"
+    },
+    "searchSources": "Search sources...",
+    "select": "Select source",
+    "title": "Sources",
+    "voltage": {
+      "description": "Line to line voltage in kV.",
+      "label": "Voltage"
+    },
+    "x0r0": {
+      "description": "X0/R0 of source.",
+      "label": "X0/R0"
+    },
+    "x1r1": {
+      "description": "X1/R1 of source.",
+      "label": "X1/R1"
+    }
+  },
+  "createTransmissionLineForm": {
+    "fromSource": {
+      "label": "From Source"
+    },
+    "name": {
+      "label": "Name"
+    },
+    "toSource": {
+      "label": "To Source"
+    }
+  },
+  "errorPage": {
+    "errorPageText": "Something has gone wrong, please return and try again.",
+    "title": "Error"
+  },
+  "faultLocationForm": {
+    "name": {
+      "label": "Fault Location"
+    },
+    "towerId": {
+      "label": "Fault Location"
+    }
+  },
+  "form": {
+    "cancel": "Cancel",
+    "create": "Create",
+    "delete": "Confirm",
+    "generate": "Generate",
+    "reset": "Reset",
+    "submit": "Submit",
+    "update": "Update"
+  },
+  "general": {
+    "cannotUndo": "This action cannot be undone.",
+    "changeLanguage": "Change Language",
+    "conductorTypes": "Conductor Types",
+    "confirmationTitle": "Are you absolutely sure?",
+    "errorMessage": "There is an error",
+    "goBack": "Go Back",
+    "home": "Home",
+    "loading": "Loading",
+    "noResults": "No results.",
+    "project": "Project",
+    "projects": "Projects",
+    "results": "Results",
+    "solve": "Solve",
+    "towerGeometries": "Tower Geometries"
+  },
+  "generateConductors": {
+    "circuits": {
+      "description": "Number of distinct circuits on the transmission line.",
+      "label": "Circuits"
+    },
+    "modalDescription": "Generate a configuration for the conductors of the transmission line.",
+    "modalTitle": "Generate Conductors",
+    "neutralConductorType": {
+      "description": "The type of cable used for the neutral overhead cables.",
+      "label": "Neutral Conductor Type"
+    },
+    "neutrals": {
+      "description": "Number of overhead earth conductors.",
+      "label": "Number of neutral conductors"
+    },
+    "phaseConductorType": {
+      "description": "The type of cable used for the phase conductors.",
+      "label": "Phase Conductor Type"
+    },
+    "phases": {
+      "description": "Number of phases per circuit.",
+      "label": "Phases"
+    },
+    "tooltip": "Generate the list of conductors"
+  },
+  "generateTowers": {
+    "distance": {
+      "description": "Total length of the transmission line in kilometres.",
+      "label": "Total Distance"
+    },
+    "geometryId": {
+      "description": "The most commonly used tower geometry.",
+      "label": "Tower Geometry"
+    },
+    "modalDescription": "Generate a configuration for the transmission towers along the line.",
+    "modalTitle": "Generate Transmission Towers",
+    "namePrefix": {
+      "description": "This will be used to generate a unique name, ie. \"T\" will generate T1, T2, T3, etc..",
+      "label": "Name Prefix"
+    },
+    "numTowers": {
+      "description": "The total number of towers along the transmission line.",
+      "label": "Number of Towers"
+    },
+    "resistance": {
+      "description": "The average resistance of the transmission towers.",
+      "label": "Resistance of Towers"
+    },
+    "tooltip": "Generate the list of towers"
+  },
+  "home": {
+    "openProject": "Open Project"
+  },
+  "pageNotFound": {
+    "text": "The page you were searching for could not be found.",
+    "title": "Page Not Found"
+  },
+  "project": {
+    "description": "Your current Project",
+    "save": {
+      "buttonText": "Save Project"
+    },
+    "title": "Project"
+  },
+  "projectLines": {
+    "add": {
+      "buttonText": "Create"
+    }
+  },
+  "projectSources": {
+    "add": {
+      "buttonText": "Create"
+    }
+  },
+  "projectTable": {
+    "name": {
+      "label": "Project Name"
+    }
+  },
+  "singleFault": {
+    "current": {
+      "title": "Amps",
+      "tooltipLabel": "Current: {{current}} A"
+    },
+    "graph": {
+      "title": "Current to ground at each tower"
+    },
+    "location": {
+      "title": "Location",
+      "tooltipLabel": "Name: {{name}}"
+    },
+    "resistance": {
+      "tooltipLabel": "Resistance: {{resistance}} Ω"
+    },
+    "title": "Transmission Line Fault at {{lineName}} - {{towerName}}",
+    "towerGeometry": {
+      "tooltipLabel": "Tower Geometry"
+    }
+  },
+  "source": {
+    "add": {
+      "buttonText": "",
+      "buttonTooltip": "",
+      "description": "",
+      "title": ""
+    },
+    "deletionWarning": "",
+    "edit": {
+      "title": ""
+    },
+    "isc1": {
+      "description": "",
+      "label": ""
+    },
+    "isc3": {
+      "description": "",
+      "label": ""
+    },
+    "name": {
+      "description": "",
+      "label": "",
+      "placeholder": ""
+    },
+    "noneFound": "",
+    "phases": {
+      "description": "",
+      "label": ""
+    },
+    "resistance": {
+      "description": "",
+      "label": ""
+    },
+    "searchSources": "",
+    "select": "",
+    "title": "",
+    "voltage": {
+      "description": "",
+      "label": ""
+    },
+    "x0r0": {
+      "description": "",
+      "label": ""
+    },
+    "x1r1": {
+      "description": "",
+      "label": ""
+    }
+  },
+  "table": {
+    "actions": "Actions"
+  },
+  "towerConfiguration": {
+    "addTooltip": "Add a tower",
+    "deleteAllTooltip": "Delete all towers",
+    "description": "Configure the towers for the Transmission line",
+    "distance": {
+      "label": "Distance"
+    },
+    "geometry": {
+      "label": "Geometry"
+    },
+    "name": {
+      "label": "Name"
+    },
+    "resistance": {
+      "label": "Resistance"
+    },
+    "title": "Tower Configuration"
+  },
+  "towerGeomeryConductors": {
+    "title": "Conductors"
+  },
+  "towerGeometriesPage": {
+    "add": {
+      "buttonText": "Create"
+    }
+  },
+  "towerGeometry": {
+    "add": {
+      "buttonText": "Add Tower Geometry",
+      "title": "Add Tower Geometry"
+    },
+    "edit": {
+      "title": "Edit Tower Geometry"
+    },
+    "name": {
+      "description": "A unique name for the tower geometry.",
+      "label": "Name"
+    },
+    "noneFound": "No tower geometries found.",
+    "nothingSelected": "Select a geometry type",
+    "searchPlaceholder": "Search Tower Geometries..."
+  },
+  "transmissionLine": {
+    "add": {
+      "buttonText": "Add Transmission Line",
+      "buttonTooltip": "Add a transmission line to the project",
+      "title": "Add Transmission Line"
+    },
+    "build": {
+      "cMatrix": {
+        "title": "cMatrix (nF/km):"
+      },
+      "rMatrix": {
+        "title": "rMatrix (Ω/km):"
+      },
+      "title": "Geometry for Transmission Line: {{lineName}}",
+      "usingGeometry": "Using Geometry Type: {{geometryName}}",
+      "xMatrix": {
+        "title": "xMatrix (Ω/km):"
+      }
+    },
+    "deletionWarning": "his will permanently delete the Transmission Line.",
+    "edit": {
+    },
+    "fromSource": {
+      "description": "The starting point of the transmission line",
+      "label": "From Source"
+    },
+    "name": {
+      "description": "Name of the transmission line.",
+      "label": "Name",
+      "placeholder": "Line1..."
+    },
+    "title": "Transmission Lines",
+    "toSource": {
+      "description": "The ending point of the transmission line",
+      "label": "To Source"
+    },
+    "update": {
+      "description": "Edit the transmission line.",
+      "title": "Edit Transmission Line"
+    }
+  },
+  "transmissionLineConductors": {
+    "description": "The conductors used along this line.",
+    "title": "Conductors"
+  },
+  "updateConductorLocationModal": {
+    "x": {
+      "label": "X"
+    },
+    "y": {
+      "label": "Y"
+    }
+  },
+  "updateConductorModal": {
+    "bundleNumber": {
+      "label": "Bundle Number"
+    },
+    "bundleSpacing": {
+      "label": "Bundle Spacing"
+    },
+    "fromPhase": {
+      "label": "From Phase"
+    },
+    "isNeutral": {
+      "label": "Is Neutral?"
+    },
+    "modalTitle": "Update Conductor",
+    "name": {
+      "description": "Provide a descriptive name for the conductor",
+      "label": "Name"
+    },
+    "toPhase": {
+      "label": "To Phase"
+    },
+    "typeId": {
+      "label": "Conductor Type"
+    }
+  },
+  "updateProjectForm": {
+    "name": {
+      "label": "Name"
+    }
+  },
+  "updateSourceElectricalForm": {
+    "frequency": {
+      "label": "Frequency"
+    },
+    "isc1": {
+      "label": "Short Circuit 1 phase Current"
+    },
+    "isc3": {
+      "label": "Short circuit 3 Phase Current"
+    },
+    "phases": {
+      "label": "Phases"
+    },
+    "resistance": {
+      "label": "Resistance"
+    },
+    "voltage": {
+      "label": "Voltage"
+    },
+    "x0r0": {
+      "label": "X0/R0"
+    },
+    "x1r1": {
+      "label": "X1/R1"
+    }
+  },
+  "updateSourceForm": {
+    "name": {
+      "label": "Name"
+    }
+  },
+  "updateTowerModal": {
+    "distance": {
+      "label": "Distance"
+    },
+    "geometryId": {
+      "label": "Geometry Type"
+    },
+    "modalTitle": "Edit Tower",
+    "name": {
+      "label": "Name"
+    },
+    "resistance": {
+      "label": "Resistance"
+    }
+  },
+  "welcome": {
+    "title": "Welcome"
+  },
+  "worstCaseResults": {
+    "current": {
+      "title": "Amps (A)"
+    },
+    "location": {
+      "title": "Location"
+    },
+    "title": "Worst case scenario for each transmission tower"
+  }
+}
