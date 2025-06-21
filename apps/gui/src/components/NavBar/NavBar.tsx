@@ -74,7 +74,7 @@ export default function NavBar() {
                 </NavigationMenuList>
             </NavigationMenu>
             <div>
-                <UserButton />
+                {/* <UserButton /> */}
             </div>
         </div>
     );
