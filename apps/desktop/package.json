@@ -29,7 +29,7 @@
     "devDependencies": {
         "electron-builder": "^25.1.8",
         "@electron/rebuild": "^3.7.0",
-        "@playwright/test": "^1.48.1",
+        "@playwright/test": "^1.53.2",
         "@repo/eslint-config": "workspace:*",
         "@repo/typescript-config": "workspace:*",
         "@rollup/plugin-commonjs": "^28.0.1",
